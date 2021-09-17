@@ -9,7 +9,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Skye">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".feedback"
+            android:exported="true" />
+        <activity
+            android:name=".ProfileMain"
+            android:exported="true" />
+        <activity
+            android:name=".Paymentmain"
+            android:exported="true" />
+        <activity
+            android:name=".CartMain"
+            android:exported="true" />
+        <activity
+            android:name=".editItems"
+            android:exported="true" />
+        <activity
+            android:name=".addItems"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
