@@ -58,6 +58,8 @@ public class itemRecordList extends AppCompatActivity {
       mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
           @Override
           public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+              CharSequence[] items = {"Update","Delete"};
+              
               return false;
           }
       });
