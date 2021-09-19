@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdminMainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="35dp">
+        <ImageView
+            android:id="@+id/imageView"
+            android:background="@color/purple_500"
+            android:layout_alignParentTop="true"
+            android:layout_width="160dp"
+            android:src="@drawable/addphoto"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:layout_height="160dp" />
+
+        <EditText
+            android:id="@+id/itemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:ems="10"
+            android:hint="item Name"
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/itemCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/itemName"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:ems="10"
+            android:hint="itemCategory "
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/itemDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/itemCategory"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:ems="10"
+            android:hint="ItemDescription "
+            android:minHeight="48dp" />
+
+        <EditText
+            android:id="@+id/itemSellPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/itemDescription"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:ems="10"
+            android:inputType="numberDecimal"
+            android:hint="Item Sell Price "
+            android:minHeight="48dp" />
+
+        <Button
+            android:id="@+id/btnAdd"
+            style="@style/Animation.Design.BottomSheetDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/itemSellPrice"
+            android:layout_marginTop="26dp"
+            android:background="@color/pacific_blue"
+            android:minWidth="160dp"
+            android:onClick="addItems"
+            android:text="Save " />
+
+        <Button
+            android:id="@+id/btnList"
+            style="@style/Animation.Design.BottomSheetDialog"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/itemSellPrice"
+            android:layout_alignBottom="@+id/btnAdd"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginBottom="0dp"
+            android:layout_toEndOf="@+id/btnAdd"
+            android:background="@color/pacific_blue"
+            android:minWidth="160dp"
+            android:text="View Item " />
+
+
+
+
+    </RelativeLayout>
+    
+</ScrollView>

@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".editItems">
 
@@ -110,6 +111,7 @@
         android:id="@+id/deletebtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="deleteItem"
         android:text="Delete Items"
         app:layout_constraintBaseline_toBaselineOf="@+id/edittembtn"
         app:layout_constraintEnd_toEndOf="parent"
