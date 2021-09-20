@@ -64,7 +64,7 @@ public class feedback extends AppCompatActivity {
     }
     public void openEditItemActivity(View view) {
         Log.d("workflow", "goto EditItems activity");
-        Intent intent = new Intent(this,editItems.class);
+        Intent intent = new Intent(this,AdminMainActivity.class);
         startActivity(intent);
     }
 

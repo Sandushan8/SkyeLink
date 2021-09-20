@@ -49,10 +49,10 @@ public class addItems extends AppCompatActivity {
             //removedefault(issetasdefault);
 
             long val;
-            val = dbHelper.addItem(pname.getText().toString(),
-                    pcategory.getText().toString(),
-                    Double.parseDouble(pPrice.getText().toString()),
-                    pdesc.getText().toString());
+//            val = dbHelper.addItem(pname.getText().toString(),
+//                    pcategory.getText().toString(),
+//                    Double.parseDouble(pPrice.getText().toString()),
+//                    pdesc.getText().toString());
 
             //Snackbar.make(view,"Record Added Succesfully", BaseTransientBottomBar.LENGTH_LONG).setAction("OK",null).show();
 

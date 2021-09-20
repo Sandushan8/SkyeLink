@@ -49,12 +49,12 @@ public class editItems extends AppCompatActivity {
 
             //   int val1=dbHelper.update_def_route();
 
-            int val = dbHelper.updateItem(
-                    updateID.getText().toString(),
-                    update_pname.getText().toString(),
-                    update_pcategory.getText().toString(),
-                    Double.parseDouble(update_pPrice.getText().toString()),
-                    update_pdesc.getText().toString());
+//            int val = dbHelper.updateItem(
+//                    updateID.getText().toString(),
+//                    update_pname.getText().toString(),
+//                    update_pcategory.getText().toString(),
+//                    Double.parseDouble(update_pPrice.getText().toString()),
+//                    update_pdesc.getText().toString());
 
             Toast.makeText(this, "Record Updated Succesfully ", Toast.LENGTH_SHORT).show();
 
@@ -86,6 +86,28 @@ public class editItems extends AppCompatActivity {
         }
 
         return true;
+
+    }
+
+    public void deleteItem(View view) {
+
+
+        Log.d("workflow","Edit_Item_Activity updateItem  method  Called");
+
+
+
+
+            DBHelper dbHelper = new DBHelper(this);
+
+            //   int val1=dbHelper.update_def_route();
+
+          //  dbHelper.deleteItem(updateID.getText().toString() );
+
+            Toast.makeText(this, "Record Updated Succesfully ", Toast.LENGTH_SHORT).show();
+
+            //   Intent intent = new Intent(this, Items.class);
+            //    startActivity(intent);
+            //   Log.i("BTN Click", "Update item Confirmation button clicked");
 
     }
 
