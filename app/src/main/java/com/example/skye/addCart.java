@@ -1,11 +1,27 @@
 package com.example.skye;
 
 public class addCart {
-    String ID;
     Integer count;
+    String ID;
+    String name;
 
-    public addCart(String ID) {
+    public addCart(String ID, String name) {
         this.ID = ID;
+        this.name = name;
+    }
+
+    public addCart(Integer count, String ID, String name) {
+        this.count = count;
+        this.ID = ID;
+        this.name = name;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
     }
 
     public String getID() {
@@ -16,16 +32,11 @@ public class addCart {
         this.ID = ID;
     }
 
-    public addCart(String ID, Integer count) {
-        this.ID = ID;
-        this.count = count;
+    public String getName() {
+        return name;
     }
 
-    public Integer getCount() {
-        return count;
-    }
-
-    public void setCount(Integer count) {
-        this.count = count;
+    public void setName(String name) {
+        this.name = name;
     }
 }

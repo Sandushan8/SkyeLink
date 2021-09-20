@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Skye">
         <activity
+            android:name=".ViewCart"
+            android:exported="true" />
+        <activity
             android:name=".feedback"
             android:exported="true" />
         <activity

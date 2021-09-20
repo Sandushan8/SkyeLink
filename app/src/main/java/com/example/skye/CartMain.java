@@ -15,7 +15,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class CartMain extends AppCompatActivity {
 
-    EditText editText_ID;
+    EditText editText_ID,editText_Name;
     Button button_add,button_view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +23,7 @@ public class CartMain extends AppCompatActivity {
         setContentView(R.layout.activity_cart_main);
 
         editText_ID = findViewById(R.id.editText_ID);
+        editText_Name = findViewById(R.id.editText_name);
 
         button_add = findViewById(R.id.button_add);
         button_view = findViewById(R.id.button_view);
@@ -32,19 +33,30 @@ public class CartMain extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String strID = editText_ID.getText().toString();
+                String strName = editText_Name.getText().toString();
 
-                if(strID.length() <=0 ){
+                if(strID.length() <=0 && (strName.length() <=0 )){
+                    Toast.makeText(CartMain.this, "Both are empty", Toast.LENGTH_SHORT).show();
+                }else if(strName.length() <=0 ){
+                    Toast.makeText(CartMain.this, "Name is empty", Toast.LENGTH_SHORT).show();
+                }else if(strID.length()<=0){
                     Toast.makeText(CartMain.this, "ID is empty", Toast.LENGTH_SHORT).show();
-                }else if(strID.length()<2){
-                    Toast.makeText(CartMain.this, "ID not valid", Toast.LENGTH_SHORT).show();
                 }else{
                     DbCart dbCart = new DbCart(CartMain.this);
-                    addCart addCart = new addCart(strID);
+                    addCart addCart = new addCart(strID,strName);
                     dbCart.addID(addCart);
                     Toast.makeText(CartMain.this, "Added successfully", Toast.LENGTH_SHORT).show();
                     finish();
                     startActivity(getIntent());
                 }
+            }
+        });
+
+        button_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(CartMain.this,ViewCart.class);
+                startActivity(intent);
             }
         });
 
