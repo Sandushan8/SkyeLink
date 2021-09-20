@@ -101,7 +101,7 @@ public class editItems extends AppCompatActivity {
 
             //   int val1=dbHelper.update_def_route();
 
-            dbHelper.deleteItem(updateID.getText().toString() );
+          //  dbHelper.deleteItem(updateID.getText().toString() );
 
             Toast.makeText(this, "Record Updated Succesfully ", Toast.LENGTH_SHORT).show();
 

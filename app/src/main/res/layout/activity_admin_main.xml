@@ -11,15 +11,16 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="35dp">
+
         <ImageView
             android:id="@+id/imageView"
-            android:background="@color/purple_500"
-            android:layout_alignParentTop="true"
             android:layout_width="160dp"
-            android:src="@drawable/addphoto"
+            android:layout_height="160dp"
+            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="18dp"
-            android:layout_height="160dp" />
+            android:background="@color/purple_500"
+            android:src="@drawable/addphoto" />
 
         <EditText
             android:id="@+id/itemName"

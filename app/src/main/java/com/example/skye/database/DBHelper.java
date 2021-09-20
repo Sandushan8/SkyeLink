@@ -77,7 +77,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public int updateItem(String id, String itemname, String ItemCategory, double sellprice, String itemdescription,byte[] image) { //define the attributes and parameters to be sent
+    public int updateItem(int id, String itemname, String ItemCategory, double sellprice, String itemdescription,byte[] image) { //define the attributes and parameters to be sent
 
         Log.d("workflow", "DB update item method Called");
         //  update route set is_default=0 where is_default=1
@@ -92,7 +92,7 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(ItemMaster.ItemsT.COLUMN_ItemImageView, image);
 
         String selection = ItemMaster.ItemsT.COLUMN_ItemCode + " = ? ";
-        String[] selectionArgs = {id};
+        String[] selectionArgs = {String.valueOf(id)};
 
         int count = db.update(ItemMaster.ItemsT.TABLE_NAME,
                 values,
@@ -102,12 +102,12 @@ public class DBHelper extends SQLiteOpenHelper {
         return count;
     }
 
-    public void deleteItem(String itemcode) {
+    public void deleteItem(int itemcode) {
         Log.d("workflow", "DB delete item method Called");
 
         SQLiteDatabase db = getWritableDatabase();
         String selection = ItemMaster.ItemsT.COLUMN_ItemCode + " = ? ";
-        String[] selectionArgs = {itemcode};
+        String[] selectionArgs = {String.valueOf(itemcode)};
         db.delete(ItemMaster.ItemsT.TABLE_NAME,   //table name
                 selection,                         //where clause
                 selectionArgs                       //selection clause

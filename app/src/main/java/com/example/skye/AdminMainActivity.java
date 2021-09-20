@@ -3,6 +3,7 @@ package com.example.skye;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -42,6 +43,9 @@ public class AdminMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_main);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("New Item Records");
+
         itemName = findViewById(R.id.itemName);
         itemCategory = findViewById(R.id.itemCategory);
         itemDesc = findViewById(R.id.itemDescription);
@@ -69,6 +73,15 @@ public class AdminMainActivity extends AppCompatActivity {
                 startActivity(new Intent(AdminMainActivity.this,itemRecordList.class));
             }
         });
+    }
+
+
+    private static byte[] imageViewToByte(ImageView image) {
+        Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
+        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG,100,stream);
+        byte[] byteArray = stream.toByteArray();
+        return  byteArray;
     }
 
 
@@ -113,6 +126,10 @@ public class AdminMainActivity extends AppCompatActivity {
     }
 
 
+
+
+
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void addItems(View view) {
         Log.d("workflow", "Add Item addItem  method  Called");
@@ -136,14 +153,6 @@ public class AdminMainActivity extends AppCompatActivity {
             mImageView.setImageResource(R.drawable.addphoto);
             Log.i("BTN Click", "Add Item Confirmation button clicked");
         }
-    }
-
-    private static byte[] imageViewToByte(ImageView image) {
-        Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.PNG,100,stream);
-        byte[] byteArray = stream.toByteArray();
-        return  byteArray;
     }
 
 

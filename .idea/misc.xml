@@ -10,7 +10,7 @@
         <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/drawable/profile.xml" value="0.1" />
         <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/drawable/selector.xml" value="0.1" />
         <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/activity_add_items.xml" value="0.1648148148148148" />
-        <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/activity_admin_main.xml" value="0.30416666666666664" />
+        <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/activity_admin_main.xml" value="0.33" />
         <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/activity_cart_main.xml" value="0.1648148148148148" />
         <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/activity_edit_items.xml" value="0.33" />
         <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/activity_feedback.xml" value="0.5" />
@@ -18,6 +18,7 @@
         <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/activity_main.xml" value="0.20925925925925926" />
         <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/activity_paymentmain.xml" value="0.1648148148148148" />
         <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/activity_profile_main.xml" value="0.1648148148148148" />
+        <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/itemupdate.xml" value="0.1" />
         <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/row.xml" value="0.5" />
         <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/menu/bottom.xml" value="0.20925925925925926" />
       </map>
