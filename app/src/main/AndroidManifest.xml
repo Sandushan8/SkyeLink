@@ -13,10 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Skye">
         <activity
-            android:name=".itemRecordList"
+            android:name=".admin.itemRecordList"
             android:exported="true" />
         <activity
-            android:name=".AdminMainActivity"
+            android:name=".admin.AdminMainActivity"
             android:exported="true">
 
             <!-- <intent-filter> -->

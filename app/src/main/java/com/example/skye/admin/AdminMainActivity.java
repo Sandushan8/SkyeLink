@@ -1,4 +1,4 @@
-package com.example.skye;
+package com.example.skye.admin;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,9 +22,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.skye.R;
 import com.example.skye.database.DBHelper;
 import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageActivity;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.ByteArrayOutputStream;
@@ -70,7 +70,7 @@ public class AdminMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //start item record
-                startActivity(new Intent(AdminMainActivity.this,itemRecordList.class));
+                startActivity(new Intent(AdminMainActivity.this, itemRecordList.class));
             }
         });
     }

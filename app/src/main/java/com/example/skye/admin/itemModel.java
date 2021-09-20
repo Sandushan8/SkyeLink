@@ -1,4 +1,4 @@
-package com.example.skye;
+package com.example.skye.admin;
 
 public class itemModel {
     private  int itemCode;

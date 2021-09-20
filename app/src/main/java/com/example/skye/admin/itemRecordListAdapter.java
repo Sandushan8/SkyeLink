@@ -1,4 +1,4 @@
-package com.example.skye;
+package com.example.skye.admin;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -11,7 +11,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.skye.database.DBHelper;
+import com.example.skye.R;
+import com.example.skye.admin.itemModel;
 
 import java.util.ArrayList;
 
