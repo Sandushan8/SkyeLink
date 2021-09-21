@@ -1,5 +1,7 @@
 package com.example.skye;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -38,13 +40,38 @@ public class CartAdapterClass extends RecyclerView.Adapter<CartAdapterClass.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         final addCart addCart = cart.get(position);
 
         holder.textViewID.setText(Integer.toString(addCart.getCount()));
         holder.editText_ID.setText(addCart.getID());
         holder.editText_Name.setText(addCart.getName());
 
+        holder.button_Edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String stringID =  holder.editText_ID.getText().toString();
+                String stringName = holder.editText_Name.getText().toString();
+
+
+                dbCart.updateCart(new addCart(addCart.getCount(),stringID,stringName));
+                notifyDataSetChanged();
+                ((Activity) context).finish();
+                context.startActivity(((Activity) context).getIntent());
+
+
+            }
+        });
+
+        holder.button_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dbCart.deleteCat(addCart.getCount());
+                cart.remove(position);
+                notifyDataSetChanged();
+
+            }
+        });
 
     }
 
