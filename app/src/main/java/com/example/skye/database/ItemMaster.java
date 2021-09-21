@@ -13,6 +13,7 @@ public class ItemMaster {
         public static final String COLUMN_ItemCategory = "ItemCategory";
         public static final String COLUMN_ItemSellPrice = "ItemSellPrice";
         public static final String COLUMN_ItemDescription = "ItemDescription";
+        public static final String COLUMN_ItemImageView = "ItemImageView";
 
     }
 }
