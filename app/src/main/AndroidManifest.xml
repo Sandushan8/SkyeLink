@@ -13,6 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Skye">
         <activity
+
+            android:name=".ViewCart"
+            android:exported="true" />
+        <activity
+
             android:name=".itemRecordList"
             android:exported="true" />
         <activity
@@ -27,6 +32,7 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
+
             android:name=".feedback"
             android:exported="true" />
         <activity

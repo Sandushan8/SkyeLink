@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/DSA/SkyeLink/app/src/main/res/layout/activity_addtocart.xml" value="0.4" />
+        <entry key="..\:/DSA/SkyeLink/app/src/main/res/layout/activity_cart_main.xml" value="0.2" />
+        <entry key="..\:/DSA/SkyeLink/app/src/main/res/layout/activity_updatecart.xml" value="0.4" />
+        <entry key="..\:/DSA/SkyeLink/app/src/main/res/layout/cart_item_list.xml" value="0.536" />
         <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/drawable/cart_icon.xml" value="0.1" />
         <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/drawable/feedback.xml" value="0.1" />
         <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/drawable/home_icon.xml" value="0.1" />
