@@ -1,5 +1,6 @@
 package com.example.skye;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -39,7 +40,7 @@ public class CartAdapterClass extends RecyclerView.Adapter<CartAdapterClass.View
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView") int position) {
         final addCart addCart = cart.get(position);
 
         holder.textViewID.setText(Integer.toString(addCart.getCount()));
