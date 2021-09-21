@@ -2,6 +2,7 @@ package com.example.skye.database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
@@ -32,10 +33,12 @@ public class DBHelper extends SQLiteOpenHelper {
                         " TEXT, "
                         + ItemMaster.ItemsT.COLUMN_ItemCategory +
                         " TEXT, "
+                        + ItemMaster.ItemsT.COLUMN_ItemDescription +
+                        " TEXT, "
                         + ItemMaster.ItemsT.COLUMN_ItemSellPrice +
                         " REAL, "
-                        + ItemMaster.ItemsT.COLUMN_ItemDescription +
-                        " TEXT" + ")";
+                        + ItemMaster.ItemsT.COLUMN_ItemImageView +
+                        " BLOB" + ")";
 
         db.execSQL(SQL_CREATE_ITEMS);//Execute the table creation
         Log.d("DBcreation",SQL_CREATE_ITEMS );
@@ -49,7 +52,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public long addItem(String itemname, String ItemCategory, double sellprice, String itemdescription) //enter all the parameter to be added to DB
+    public long addItem(String itemname, String ItemCategory, double sellprice, String itemdescription,byte[] image) //enter all the parameter to be added to DB
     {
         Log.d("workflow", "DB addItems method Called");
 
@@ -61,6 +64,8 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(ItemMaster.ItemsT.COLUMN_ItemCategory, ItemCategory);
         values.put(ItemMaster.ItemsT.COLUMN_ItemSellPrice, sellprice);
         values.put(ItemMaster.ItemsT.COLUMN_ItemDescription, itemdescription);
+        values.put(ItemMaster.ItemsT.COLUMN_ItemImageView, image);
+
 
         long newRowID = db.insert(ItemMaster.ItemsT.TABLE_NAME, null, values); //Insert a new row and returning the primary
         //key values of the new row
@@ -72,7 +77,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public int updateItem(String id, String itemname, String ItemCategory, double sellprice, String itemdescription) { //define the attributes and parameters to be sent
+    public int updateItem(int id, String itemname, String ItemCategory, double sellprice, String itemdescription,byte[] image) { //define the attributes and parameters to be sent
 
         Log.d("workflow", "DB update item method Called");
         //  update route set is_default=0 where is_default=1
@@ -84,9 +89,10 @@ public class DBHelper extends SQLiteOpenHelper {
         values.put(ItemMaster.ItemsT.COLUMN_ItemCategory, ItemCategory);
         values.put(ItemMaster.ItemsT.COLUMN_ItemSellPrice, sellprice);
         values.put(ItemMaster.ItemsT.COLUMN_ItemDescription, itemdescription);
+        values.put(ItemMaster.ItemsT.COLUMN_ItemImageView, image);
 
         String selection = ItemMaster.ItemsT.COLUMN_ItemCode + " = ? ";
-        String[] selectionArgs = {id};
+        String[] selectionArgs = {String.valueOf(id)};
 
         int count = db.update(ItemMaster.ItemsT.TABLE_NAME,
                 values,
@@ -96,17 +102,22 @@ public class DBHelper extends SQLiteOpenHelper {
         return count;
     }
 
-    public void deleteItem(String itemcode) {
+    public void deleteItem(int itemcode) {
         Log.d("workflow", "DB delete item method Called");
 
         SQLiteDatabase db = getWritableDatabase();
         String selection = ItemMaster.ItemsT.COLUMN_ItemCode + " = ? ";
-        String[] selectionArgs = {itemcode};
+        String[] selectionArgs = {String.valueOf(itemcode)};
         db.delete(ItemMaster.ItemsT.TABLE_NAME,   //table name
                 selection,                         //where clause
                 selectionArgs                       //selection clause
         );
 
+    }
+
+    public  Cursor getData(String sql){
+        SQLiteDatabase db = getReadableDatabase();
+        return db.rawQuery(sql,null);
     }
 
 
