@@ -66,4 +66,19 @@ public class DbCart extends SQLiteOpenHelper {
         return storeCart;
     }
 
+    public void updateCart(addCart AddCart){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DbCart.ID,AddCart.getID());
+        contentValues.put(DbCart.Name,AddCart.getName());
+        sqLiteDatabase = this.getWritableDatabase();
+        sqLiteDatabase.update(TABLE_NAME,contentValues,COUNT+ " = ? " , new String[]
+                {String.valueOf(AddCart.getCount())});
+    }
+
+    public void deleteCat(int count){
+        sqLiteDatabase = this.getWritableDatabase();
+        sqLiteDatabase.delete(TABLE_NAME, COUNT + " = ?", new String[]
+                {String.valueOf(count)});
+    }
+
 }
