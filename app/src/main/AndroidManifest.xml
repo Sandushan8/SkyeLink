@@ -26,14 +26,12 @@
             android:name=".ViewMobileHome"
             android:exported="true" />
         <activity
-            android:name=".admin.itemRecordList"
-
 
             android:name=".ViewCart"
             android:exported="true" />
         <activity
 
-            android:name=".itemRecordList"
+            android:name=".admin.itemRecordList"
 
             android:exported="true" />
         <activity
