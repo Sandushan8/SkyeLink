@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".itemRecordList">
+    android:padding="10dp"
+    android:background="@drawable/adminbackg"
+    tools:context=".admin.itemRecordList">
 
     <ListView
         android:id="@+id/listView"

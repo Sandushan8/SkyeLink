@@ -1,4 +1,4 @@
-package com.example.skye;
+package com.example.skye.Adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -11,62 +11,62 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.skye.database.DBHelper;
+import com.example.skye.R;
+import com.example.skye.admin.itemModel;
 
 import java.util.ArrayList;
 
-public class itemRecordListAdapter extends BaseAdapter {
+public class MobileListAdapter extends BaseAdapter {
 
     private Context context;
     private int layout;
-    private ArrayList<itemModel> recordList;
+    private ArrayList<itemModel> foodList;
 
-    public itemRecordListAdapter(Context context, int layout, ArrayList<itemModel> recordList) {
+    public MobileListAdapter(Context context, int layout, ArrayList<itemModel> foodList) {
         this.context = context;
         this.layout = layout;
-        this.recordList = recordList;
-        Log.d("workflow1","itemRecordListAdapter constructor");
+        this.foodList = foodList;
+        Log.d("workflow1","MobileListAdapter constructor");
     }
 
 
 
     @Override
     public int getCount() {
-        return recordList.size();
+        return foodList.size();
     }
 
     @Override
-    public Object getItem(int i) {
-        return recordList.get(i);
+    public Object getItem(int position) {
+        return foodList.get(position);
     }
 
     @Override
-    public long getItemId(int i) {
-        return i;
+    public long getItemId(int position) {
+        return position;
     }
 
     private  class ViewHolder{
 
 
         ImageView imageView;
-        TextView txtItemName,txtItemCategory,txtItemDesc,txtPrice;
+        TextView txtMobileName,txtItemDesc,txtPrice;
 
     }
 
     @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
+    public View getView(int position, View view, ViewGroup viewGroup) {
         View row = view;
         ViewHolder holder  = new ViewHolder();
-        Log.d("workflow1","inside getView method");
+        Log.d("workflow1","inside getView method mobile");
 
         if(row == null){
             LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             row = inflater.inflate(layout,null);
-            holder.txtItemName = row.findViewById(R.id.txtItemName);
-            holder.txtItemCategory = row.findViewById(R.id.txtItemCategory);
-            holder.txtItemDesc = row.findViewById(R.id.txtItemDesc);
-            holder.txtPrice = row.findViewById(R.id.txtPrice);
-            holder.imageView = row.findViewById(R.id.imgIcon);
+            holder.txtMobileName = row.findViewById(R.id.txtMobileName1);
+            holder.txtItemDesc = row.findViewById(R.id.itemDescMobile1);
+            holder.txtPrice = row.findViewById(R.id.txtPrice1);
+            holder.imageView = row.findViewById(R.id.imageMobile1);
             row.setTag(holder);
             Log.d("workflow1","row equal nll");
 
@@ -74,10 +74,9 @@ public class itemRecordListAdapter extends BaseAdapter {
             holder = (ViewHolder) row.getTag();
         }
 
-        itemModel model = recordList.get(i);
+        itemModel model = foodList.get(position);
 
-        holder.txtItemName.setText(model.getItemName());
-        holder.txtItemCategory.setText(model.getItemCategory());
+        holder.txtMobileName.setText(model.getItemName());
         holder.txtPrice.setText(String.valueOf(model.getItemSellPrice()));
         holder.txtItemDesc.setText(model.getItemDescription());
         byte[] recordImage = model.getImage();
