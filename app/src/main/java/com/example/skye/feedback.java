@@ -69,9 +69,9 @@ public class feedback extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openaddItemActivity(View view) {
+    public void open(View view) {
         Log.d("workflow", "goto additem activity");
-        Intent intent = new Intent(this,addItems.class);
+        Intent intent = new Intent(this,ViewMobileHome.class);
         startActivity(intent);
     }
 

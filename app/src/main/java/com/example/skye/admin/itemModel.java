@@ -8,6 +8,9 @@ public class itemModel {
     private  String itemDescription;
     private byte[] image;
 
+
+
+
     public itemModel(int itemCode, String itemName, String itemCategory, Double itemSellPrice, String itemDescription, byte[] image) {
         this.itemCode = itemCode;
         this.itemName = itemName;
@@ -60,6 +63,7 @@ public class itemModel {
     public void setImage(byte[] image) {
         this.image = image;
     }
+
 
 
 }

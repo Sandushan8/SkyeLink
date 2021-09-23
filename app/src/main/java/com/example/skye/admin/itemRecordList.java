@@ -87,42 +87,42 @@ public class itemRecordList extends AppCompatActivity {
             Toast.makeText(this,"No Item Found",Toast.LENGTH_SHORT).show();
         }
 
-      mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-          @Override
-          public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
-              CharSequence[] items = {"Update","Delete"};
+        mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
+                CharSequence[] items = {"Update","Delete"};
 
-              AlertDialog.Builder dialog = new AlertDialog.Builder(itemRecordList.this);
-                    Log.d("worflow","Alert builder called");
+                AlertDialog.Builder dialog = new AlertDialog.Builder(itemRecordList.this);
+                Log.d("worflow","Alert builder called");
 
-              dialog.setTitle("Choose an action");
-              dialog.setItems(items, new DialogInterface.OnClickListener() {
-                  @Override
-                  public void onClick(DialogInterface dialogInterface, int i) {
-                      if(i == 0){
-                          Cursor c = dbHelper.getData("select ItemCode from Items");
-                          ArrayList<Integer> arrID = new ArrayList<Integer>();
-                          while ((c.moveToNext())){
-                              arrID.add(c.getInt(0));
-                          }
-                          //show update dialog
-                          showDialogUpdate(itemRecordList.this,arrID.get(position));
-                      }
-                      if(i == 1){
-                          Cursor c = dbHelper.getData("select ItemCode from Items");
-                          ArrayList<Integer> arrID = new ArrayList<Integer>();
-                          while ((c.moveToNext())){
-                              arrID.add(c.getInt(0));
-                          }
-                          //show update dialog
-                          showDialogDelete(arrID.get(position));
-                      }
-                  }
-              });
-              dialog.show();
-              return true;
-          }
-      });
+                dialog.setTitle("Choose an action");
+                dialog.setItems(items, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if(i == 0){
+                            Cursor c = dbHelper.getData("select ItemCode from Items");
+                            ArrayList<Integer> arrID = new ArrayList<Integer>();
+                            while ((c.moveToNext())){
+                                arrID.add(c.getInt(0));
+                            }
+                            //show update dialog
+                            showDialogUpdate(itemRecordList.this,arrID.get(position));
+                        }
+                        if(i == 1){
+                            Cursor c = dbHelper.getData("select ItemCode from Items");
+                            ArrayList<Integer> arrID = new ArrayList<Integer>();
+                            while ((c.moveToNext())){
+                                arrID.add(c.getInt(0));
+                            }
+                            //show update dialog
+                            showDialogDelete(arrID.get(position));
+                        }
+                    }
+                });
+                dialog.show();
+                return true;
+            }
+        });
 
     }
 
@@ -134,9 +134,9 @@ public class itemRecordList extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 try {
-                     dbHelper.deleteItem(idRecord);
-                     recreate();
-                     Toast.makeText(itemRecordList.this,"Delete Successfully",Toast.LENGTH_SHORT).show();
+                    dbHelper.deleteItem(idRecord);
+                    recreate();
+                    Toast.makeText(itemRecordList.this,"Delete Successfully",Toast.LENGTH_SHORT).show();
                 }
                 catch (Exception e){
                     Log.d("error",e.getMessage());
@@ -171,45 +171,45 @@ public class itemRecordList extends AppCompatActivity {
         dialog.getWindow().setLayout(width,height);
         dialog.show();
 
-       imageViewIcon.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               ActivityCompat.requestPermissions(
-                       itemRecordList.this,
-                       new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                       REQUEST_CODE_GALLERY
-               );
-           }
+        imageViewIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ActivityCompat.requestPermissions(
+                        itemRecordList.this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        REQUEST_CODE_GALLERY
+                );
+            }
 
-       });
+        });
 
-      btnUpdate.setOnClickListener(new View.OnClickListener() {
-          @RequiresApi(api = Build.VERSION_CODES.O)
-          @Override
-          public void onClick(View view) {
-              Log.d("workflow", "Add Item addItem  method  Called");
-              isfieldsvalidated = CheckAllFields();
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View view) {
+                Log.d("workflow", "Add Item addItem  method  Called");
+                isfieldsvalidated = CheckAllFields();
 
-              if (isfieldsvalidated) {
-                  DBHelper dbHelper = new DBHelper(itemRecordList.this);
-                  //removedefault(issetasdefault);
+                if (isfieldsvalidated) {
+                    DBHelper dbHelper = new DBHelper(itemRecordList.this);
+                    //removedefault(issetasdefault);
 
-                  long val;
-                  val = dbHelper.updateItem(position,txtEdtItemName.getText().toString(),
-                          txtEdtItemCategory.getText().toString(),
-                          Double.parseDouble(txtEdtPrice.getText().toString()),
-                          txtEdtItemDesc.getText().toString(),
-                          imageViewToByte(imageViewIcon));
+                    long val;
+                    val = dbHelper.updateItem(position,txtEdtItemName.getText().toString(),
+                            txtEdtItemCategory.getText().toString(),
+                            Double.parseDouble(txtEdtPrice.getText().toString()),
+                            txtEdtItemDesc.getText().toString(),
+                            imageViewToByte(imageViewIcon));
 
-                  dialog.dismiss();
-                  Toast.makeText(getApplicationContext(),"Update Successflly",Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                    Toast.makeText(getApplicationContext(),"Update Successflly",Toast.LENGTH_SHORT).show();
 
-                  updateRecordList();
-              }
+                    updateRecordList();
+                }
 
 
-          }
-      });
+            }
+        });
 
 
 

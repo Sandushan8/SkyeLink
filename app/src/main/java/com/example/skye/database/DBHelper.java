@@ -22,7 +22,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {     //creating the table
 
-        Log.d("workflow", "DB onCreate method Called");
+    //    Log.d("workflow", "DB onCreate method Called");
         String SQL_CREATE_ITEMS =
                 "CREATE TABLE "
                         + ItemMaster.ItemsT.TABLE_NAME +
@@ -40,21 +40,42 @@ public class DBHelper extends SQLiteOpenHelper {
                         + ItemMaster.ItemsT.COLUMN_ItemImageView +
                         " BLOB" + ")";
 
-        db.execSQL(SQL_CREATE_ITEMS);//Execute the table creation
-        Log.d("DBcreation",SQL_CREATE_ITEMS );
+     //Execute the table creation
+     //   Log.d("DBcreation","SQL_CREATE_ITEMS" );
 
 
+//        Log.d("workflow", "DB onCreate method Login Called");
+//        String SQL_USER_ACCOUNT =
+//                "CREATE TABLE "
+//                        + UserAccounts.UserT.TABLE_NAME +
+//                        " ("
+//                        + UserAccounts.UserT.COLUMN_User_ID +
+//                        " INTEGER PRIMARY KEY AUTOINCREMENT, "
+//                        + UserAccounts.UserT.COLUMN_Cus_Email +
+//                        " TEXT, "
+//                        + UserAccounts.UserT.COLUMN_Cus_Password +
+//                        " TEXT, "
+//                        + UserAccounts.UserT.COLUMN_Cus_Address +
+//                        " TEXT, "
+//                        + UserAccounts.UserT.COLUMN_Cus_Phone +
+//                        " Text " + " )";
+//
+//        db.execSQL(SQL_USER_ACCOUNT);//Execute the table creation
+    //     Log.d("workflow","SQL_USER_ACCOUNT" );
+
+        db.execSQL(SQL_CREATE_ITEMS);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.d("workflow", "DB Onupgrade method Called");
+
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public long addItem(String itemname, String ItemCategory, double sellprice, String itemdescription,byte[] image) //enter all the parameter to be added to DB
     {
-        Log.d("workflow", "DB addItems method Called");
+        Log.d("workflow", "Inside DB addItems method Called");
 
 
         SQLiteDatabase db = getWritableDatabase();// get the data repository in writable mode
