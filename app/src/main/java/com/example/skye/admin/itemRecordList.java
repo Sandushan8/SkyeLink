@@ -16,6 +16,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
@@ -164,6 +165,29 @@ public class itemRecordList extends AppCompatActivity {
         txtEdtPrice = dialog.findViewById(R.id.itemSellPrice);
         txtEdtItemDesc = dialog.findViewById(R.id.itemDescription);
         btnUpdate = dialog.findViewById(R.id.btnUpdate);
+
+        // get  data row click from sqlite
+        Cursor cursor = dbHelper.getData("select * from Items where ItemCode = "+position);
+        mList.clear();
+        while (cursor.moveToNext()){
+            int id  = cursor.getInt(0);
+            String itemName = cursor.getString(1);
+            txtEdtItemName.setText(itemName);
+            String itemCategory = cursor.getString(2);
+            txtEdtItemCategory.setText(itemCategory);
+            String itemDescription = cursor.getString(3);
+            txtEdtItemDesc.setText(itemDescription);
+            double itemSellPrice = cursor.getDouble(4);
+            txtEdtPrice.setText(String.valueOf(itemSellPrice));
+            byte[] image = cursor.getBlob(5);
+            imageViewIcon.setImageBitmap(BitmapFactory.decodeByteArray(image,0, image.length));
+            
+
+            mList.add(new itemModel(id,itemName,itemCategory,itemSellPrice,itemDescription,image));
+            Log.d("workflow",cursor.getString(4));
+            Log.d("workflow",cursor.getString(3));
+        }
+
 
         //set width of dialog
         int width = (int)(activity.getResources().getDisplayMetrics().widthPixels* 0.95);
