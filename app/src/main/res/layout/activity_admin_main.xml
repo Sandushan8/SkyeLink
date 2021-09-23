@@ -4,8 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/adminbackg"
     android:layout_height="match_parent"
-    tools:context=".AdminMainActivity">
+    tools:context=".admin.AdminMainActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -24,47 +25,52 @@
 
         <EditText
             android:id="@+id/itemName"
-            android:layout_width="wrap_content"
+            android:layout_width="303dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/imageView"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="18dp"
+            android:background="@drawable/edit_btn"
             android:ems="10"
             android:hint="item Name"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:paddingLeft="20dp" />
 
         <EditText
             android:id="@+id/itemCategory"
-            android:layout_width="wrap_content"
+            android:layout_width="298dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/itemName"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="18dp"
+            android:background="@drawable/edit_btn"
             android:ems="10"
             android:hint="itemCategory "
             android:minHeight="48dp" />
 
         <EditText
             android:id="@+id/itemDescription"
-            android:layout_width="wrap_content"
+            android:layout_width="305dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/itemCategory"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="18dp"
+            android:background="@drawable/edit_btn"
             android:ems="10"
             android:hint="ItemDescription "
             android:minHeight="48dp" />
 
         <EditText
             android:id="@+id/itemSellPrice"
-            android:layout_width="wrap_content"
+            android:layout_width="294dp"
             android:layout_height="wrap_content"
             android:layout_below="@id/itemDescription"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="18dp"
+            android:background="@drawable/edit_btn"
             android:ems="10"
-            android:inputType="numberDecimal"
             android:hint="Item Sell Price "
+            android:inputType="numberDecimal"
             android:minHeight="48dp" />
 
         <Button
@@ -73,8 +79,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/itemSellPrice"
-            android:layout_marginTop="26dp"
-            android:background="@color/pacific_blue"
+            android:layout_marginTop="54dp"
+            android:background="@drawable/btnstyle"
             android:minWidth="160dp"
             android:onClick="addItems"
             android:text="Save " />
@@ -82,15 +88,15 @@
         <Button
             android:id="@+id/btnList"
             style="@style/Animation.Design.BottomSheetDialog"
-            android:layout_width="wrap_content"
+            android:layout_width="141dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/itemSellPrice"
             android:layout_alignBottom="@+id/btnAdd"
-            android:layout_marginStart="43dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="56dp"
             android:layout_marginBottom="0dp"
             android:layout_toEndOf="@+id/btnAdd"
-            android:background="@color/pacific_blue"
+            android:background="@drawable/btnstyle"
             android:minWidth="160dp"
             android:text="View Item " />
 
@@ -98,5 +104,5 @@
 
 
     </RelativeLayout>
-    
+
 </ScrollView>
