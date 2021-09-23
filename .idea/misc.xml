@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/activity_admin_main.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/activity_feedback.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/activity_item_record_list.xml" value="0.3509259259259259" />
+        <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/activity_main.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/itemupdate.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/mobile_items.xml" value="0.3651041666666667" />
+        <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/row.xml" value="0.3509259259259259" />
+        <entry key="..\:/Users/kumar/AndroidStudioProjects/SkyeLink/app/src/main/res/layout/viewholder_recommended.xml" value="0.5" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK" />
+</project>
