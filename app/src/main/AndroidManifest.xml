@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Skye">
         <activity
+
             android:name=".login.loginactivity"
             android:exported="true" >
             <intent-filter>
@@ -25,7 +26,13 @@
             android:name=".ViewMobileHome"
             android:exported="true" />
         <activity
+
+            android:name=".ViewCart"
+            android:exported="true" />
+        <activity
+
             android:name=".admin.itemRecordList"
+
             android:exported="true" />
         <activity
             android:name=".admin.AdminMainActivity"
@@ -39,6 +46,7 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
+
             android:name=".feedback"
             android:exported="true" />
         <activity
