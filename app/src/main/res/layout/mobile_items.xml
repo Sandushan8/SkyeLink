@@ -43,7 +43,7 @@
         android:layout_height="wrap_content"
         android:text="Apple 12 Pro Max"
         android:textColor="#373B54"
-        android:textSize="15sp"
+        android:textSize="12sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/imageMobile1"
         app:layout_constraintTop_toBottomOf="@+id/imageMobile1" />
@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="TextView"
-        android:textSize="13sp"
+        android:textSize="8sp"
         app:layout_constraintEnd_toEndOf="@+id/imageMobile1"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/txtMobileName1"
