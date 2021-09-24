@@ -7,13 +7,13 @@
     tools:context=".feedback">
 
     <Button
-        android:id="@+id/Add"
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/edit"
         android:layout_marginTop="79dp"
-        android:onClick="openaddItemActivity"
-        android:text="Add"
+        android:onClick="open"
+        android:text="ViewMobile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,11 +25,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="112dp"
         android:onClick="openEditItemActivity"
-        android:text="edit"
-        app:layout_constraintEnd_toEndOf="@id/Add"
+        android:text="AddItems"
+        app:layout_constraintEnd_toEndOf="@id/view"
         app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toStartOf="@id/Add"
-        app:layout_constraintTop_toBottomOf="@+id/Add"
+        app:layout_constraintStart_toStartOf="@id/view"
+        app:layout_constraintTop_toBottomOf="@+id/view"
         tools:ignore="UsingOnClickInXml" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
