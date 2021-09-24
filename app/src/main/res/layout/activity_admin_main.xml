@@ -32,9 +32,10 @@
             android:layout_marginTop="18dp"
             android:background="@drawable/edit_btn"
             android:ems="10"
-            android:hint="item Name"
+            android:hint="@string/item_name_txt"
             android:minHeight="48dp"
-            android:paddingLeft="20dp" />
+            android:paddingLeft="20dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/itemCategory"
@@ -45,8 +46,10 @@
             android:layout_marginTop="18dp"
             android:background="@drawable/edit_btn"
             android:ems="10"
-            android:hint="itemCategory "
-            android:minHeight="48dp" />
+            android:hint="@string/item_category"
+            android:minHeight="48dp"
+            android:paddingLeft="20dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/itemDescription"
@@ -57,8 +60,10 @@
             android:layout_marginTop="18dp"
             android:background="@drawable/edit_btn"
             android:ems="10"
-            android:hint="ItemDescription "
-            android:minHeight="48dp" />
+            android:hint="@string/item_description"
+            android:minHeight="48dp"
+            android:paddingLeft="20dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/itemSellPrice"
@@ -69,9 +74,11 @@
             android:layout_marginTop="18dp"
             android:background="@drawable/edit_btn"
             android:ems="10"
-            android:hint="Item Sell Price "
+            android:hint="@string/item_sell_price"
             android:inputType="numberDecimal"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:paddingLeft="20dp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/btnAdd"
@@ -83,7 +90,7 @@
             android:background="@drawable/btnstyle"
             android:minWidth="160dp"
             android:onClick="addItems"
-            android:text="Save " />
+            android:text="@string/btn_save_txt" />
 
         <Button
             android:id="@+id/btnList"
@@ -98,7 +105,7 @@
             android:layout_toEndOf="@+id/btnAdd"
             android:background="@drawable/btnstyle"
             android:minWidth="160dp"
-            android:text="View Item " />
+            android:text="@string/btn_view_item" />
 
 
 
