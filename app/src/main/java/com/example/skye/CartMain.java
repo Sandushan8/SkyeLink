@@ -11,6 +11,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.skye.database.DBHelper;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class CartMain extends AppCompatActivity {
@@ -43,9 +44,9 @@ public class CartMain extends AppCompatActivity {
                 }else if(strID.length()<=0){
                     Toast.makeText(CartMain.this, "ID is empty", Toast.LENGTH_SHORT).show();
                 }else{
-                    DbCart dbCart = new DbCart(CartMain.this);
+                    DBHelper dbHelper = new DBHelper(CartMain.this);
                     addCart addCart = new addCart(strID,strName);
-                    dbCart.addID(addCart);
+                    dbHelper.addID(addCart);
                     Toast.makeText(CartMain.this, "Added successfully", Toast.LENGTH_SHORT).show();
                     finish();
                     startActivity(getIntent());
