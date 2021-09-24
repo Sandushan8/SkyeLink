@@ -99,11 +99,11 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<FoodDomain> foodlist = new ArrayList<>();
         foodlist.add(new FoodDomain("Apple 12 Pro", "cat_1", "slices pepperoni ,mozzarella cheese, fresh oregano,  ground black pepper, pizza sauce", 13.00, 5, 20, 1000));
-        foodlist.add(new FoodDomain("Apple 12 Pro", "cat_1", "beef, Gouda Cheese, Special sauce, Lettuce, tomato ", 15.20, 4, 18, 1500));
-        foodlist.add(new FoodDomain("Apple 12 Pro", "cat_1", " olive oil, Vegetable oil, pitted Kalamata, cherry tomatoes, fresh oregano, basil", 11.0, 3, 16, 800));
-        foodlist.add(new FoodDomain("Apple 12 Pro", "cat_1", "slices pepperoni ,mozzarella cheese, fresh oregano,  ground black pepper, pizza sauce", 13.0, 5, 20, 1000));
-        foodlist.add(new FoodDomain("Apple 12 Pro", "cat_1", "beef, Gouda Cheese, Special sauce, Lettuce, tomato ", 15.20, 4, 18, 1500));
-        foodlist.add(new FoodDomain("Apple 12 Pro", "cat_1", " olive oil, Vegetable oil, pitted Kalamata, cherry tomatoes, fresh oregano, basil", 11.0, 3, 16, 800));
+        foodlist.add(new FoodDomain("Apple 11 Pro", "cat_1", "beef, Gouda Cheese, Special sauce, Lettuce, tomato ", 15.20, 4, 18, 1500));
+        foodlist.add(new FoodDomain("Apple  Pro Max", "cat_1", " olive oil, Vegetable oil, pitted Kalamata, cherry tomatoes, fresh oregano, basil", 11.0, 3, 16, 800));
+        foodlist.add(new FoodDomain("Apple 12 Mini", "cat_1", "slices pepperoni ,mozzarella cheese, fresh oregano,  ground black pepper, pizza sauce", 13.0, 5, 20, 1000));
+        foodlist.add(new FoodDomain("Iphone SE", "cat_1", "beef, Gouda Cheese, Special sauce, Lettuce, tomato ", 15.20, 4, 18, 1500));
+        foodlist.add(new FoodDomain("Iphone X", "cat_1", " olive oil, Vegetable oil, pitted Kalamata, cherry tomatoes, fresh oregano, basil", 11.0, 3, 16, 800));
 
         adapter2 = new RecommendedAdapter(foodlist);
         recyclerViewPopularList.setAdapter(adapter2);
