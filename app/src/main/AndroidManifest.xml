@@ -14,7 +14,20 @@
         android:theme="@style/Theme.Skye">
         <activity
 
+
             android:name=".login.loginActivity"
+
+            android:name=".ViewVideo"
+            android:exported="true" />
+        <activity
+            android:name=".ViewCart"
+            android:exported="true" />
+        <activity
+            android:name=".itemRecordList"
+
+
+            android:name=".login.loginactivity"
+
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,6 +46,7 @@
 
             android:name=".admin.itemRecordList"
 
+
             android:exported="true" />
         <activity
             android:name=".admin.AdminMainActivity"
@@ -46,7 +60,6 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
-
             android:name=".feedback"
             android:exported="true" />
         <activity
