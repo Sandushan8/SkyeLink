@@ -14,7 +14,7 @@
         android:theme="@style/Theme.Skye">
         <activity
 
-            android:name=".login.loginactivity"
+            android:name=".login.loginActivity"
             android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

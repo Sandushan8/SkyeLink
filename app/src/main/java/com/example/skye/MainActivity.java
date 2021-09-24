@@ -8,15 +8,20 @@ import com.example.skye.Adapter.CategoryAdapter;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.example.skye.Adapter.RecommendedAdapter;
+import com.example.skye.login.loginActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter adapter, adapter2;
     private RecyclerView recyclerViewCategotyList, recyclerViewPopularList;
+    TextView Signouttxt, viewMobileCat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         //Bottom Navigation Bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.home);
+        Signouttxt = findViewById(R.id.signoutbtn);
+        viewMobileCat = findViewById(R.id.ViewMobileCat);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -109,7 +116,17 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewPopularList.setAdapter(adapter2);
     }
 
+    public void signOut(View view) {
+        Log.d("workflow", "goto EditItems activity");
+        Intent intent = new Intent(this, loginActivity.class);
+        startActivity(intent);
+    }
 
+    public void viewMobileCat(View view) {
+        Log.d("workflow", "goto EditItems activity");
+        Intent intent = new Intent(this, ViewMobileHome.class);
+        startActivity(intent);
+    }
 
 
 
