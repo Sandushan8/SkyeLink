@@ -2,12 +2,16 @@ package com.example.skye;
 import com.example.skye.Adapter.MobileListAdapter;
 import com.example.skye.admin.*;
 import com.example.skye.database.*;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -58,6 +62,54 @@ public class   ViewMobileHome extends AppCompatActivity {
             Toast.makeText(this,"No Item Foundzzzzzzzz",Toast.LENGTH_SHORT).show();
 
         }
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.home);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext()
+                                , MainActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.routes:
+                        startActivity(new Intent(getApplicationContext()
+                                , feedback.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.items:
+                        startActivity(new Intent(getApplicationContext()
+                                , CartMain.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.sales:
+                        startActivity(new Intent(getApplicationContext()
+                                , Paymentmain.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.customers:
+                        startActivity(new Intent(getApplicationContext()
+                                , ProfileMain.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+
+
+
+                }
+
+                return false;
+            }
+        });
+
 
 
 
