@@ -13,7 +13,7 @@ import com.example.skye.MainActivity;
 import com.example.skye.R;
 import com.example.skye.admin.AdminMainActivity;
 
-public class loginactivity extends AppCompatActivity {
+public class loginActivity extends AppCompatActivity {
     Button button;
     TextView textViewemail,textViewemailpass;
     @Override
