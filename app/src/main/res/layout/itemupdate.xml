@@ -22,7 +22,7 @@
         android:layout_marginTop="18dp"
         android:background="@drawable/edit_btn"
         android:ems="10"
-
+        android:paddingLeft="20dp"
         android:hint="item Name"
         android:minHeight="48dp" />
 
@@ -32,6 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:ems="10"
+        android:paddingLeft="20dp"
         android:background="@drawable/edit_btn"
         android:hint="itemCategory "
         android:minHeight="48dp" />
@@ -42,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:ems="10"
+        android:paddingLeft="20dp"
         android:background="@drawable/edit_btn"
         android:hint="ItemDescription "
         android:minHeight="48dp" />
@@ -52,6 +54,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:ems="10"
+        android:paddingLeft="20dp"
         android:background="@drawable/edit_btn"
         android:hint="Item Sell Price "
         android:inputType="numberDecimal"
