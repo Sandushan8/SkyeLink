@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Skye</string>
+    <string name="item_name_txt">item Name</string>
+    <string name="item_category">"itemCategory "</string>
+    <string name="item_description">ItemDescription</string>
+    <string name="item_sell_price">Item Sell Price</string>
+    <string name="btn_save_txt">Save</string>
+    <string name="btn_view_item">View_Item</string>
 </resources>

@@ -3,7 +3,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
+import com.example.skye.admin.*;
 import com.example.skye.Adapter.CategoryAdapter;
 
 import android.content.Intent;
@@ -82,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<CategoryDomain> categoryList = new ArrayList<>();
         categoryList.add(new CategoryDomain("MobilePhone", "cat_1"));
         categoryList.add(new CategoryDomain("Laptop", "apple12pro"));
+        categoryList.add(new CategoryDomain("Headset", "cat_1"));
+        categoryList.add(new CategoryDomain("Phone Caseses", "cat_1"));
         categoryList.add(new CategoryDomain("Headset", "cat_1"));
         categoryList.add(new CategoryDomain("Phone Caseses", "cat_1"));
 

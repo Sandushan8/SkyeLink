@@ -146,7 +146,6 @@ public class AdminMainActivity extends AppCompatActivity {
                     itemDesc.getText().toString(),
                     imageViewToByte(mImageView));
 
-            //Snackbar.make(view,"Record Added Succesfully", BaseTransientBottomBar.LENGTH_LONG).setAction("OK",null).show();
 
             Toast.makeText(this, "Record Added Succesfully", Toast.LENGTH_SHORT).show();
             itemName.setText("");itemDesc.setText("");itemPrice.setText("");itemCategory.setText("");
