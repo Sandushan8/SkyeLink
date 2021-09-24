@@ -58,5 +58,8 @@ public class   ViewMobileHome extends AppCompatActivity {
             Toast.makeText(this,"No Item Foundzzzzzzzz",Toast.LENGTH_SHORT).show();
 
         }
+
+
+
     }
 }

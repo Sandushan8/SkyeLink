@@ -22,6 +22,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -30,8 +31,10 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.skye.MainActivity;
 import com.example.skye.R;
 import com.example.skye.database.DBHelper;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -122,6 +125,37 @@ public class itemRecordList extends AppCompatActivity {
                 });
                 dialog.show();
                 return true;
+            }
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.admin_bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.items);
+
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext()
+                                , MainActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.customer:
+                        startActivity(new Intent(getApplicationContext()
+                                , AdminMainActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.items:
+
+                        return true;
+
+
+
+                }
+
+                return false;
             }
         });
 
