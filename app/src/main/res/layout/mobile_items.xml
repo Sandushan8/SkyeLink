@@ -7,7 +7,7 @@
     android:id="@+id/box"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
-    android:background="@drawable/white_recommeded_btn"
+    android:background="@drawable/blue_recommend_btn"
     android:elevation="3dp">
 
     <TextView
