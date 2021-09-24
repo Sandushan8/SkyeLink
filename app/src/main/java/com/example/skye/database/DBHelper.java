@@ -10,9 +10,25 @@ import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
+
+import com.example.skye.addCart;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "mobileDB.db";
+    private static final String TABLE_NAME1 ="cart1";
+    //columns
+    private static final String COUNT = "count";
+    private static final String ID = "ID";
+    private static final String Name = "Name";
+    private SQLiteDatabase sqLiteDatabase;
+
+    //creating table query
+    private static final String CREATE_TABLE1 = " create table " + TABLE_NAME1 + " ( "+ COUNT + " INTEGER PRIMARY KEY AUTOINCREMENT," + ID + " TEXT NOT NULL," +Name+ " TEXT NOT NULL); ";
+
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -43,12 +59,14 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL(SQL_CREATE_ITEMS);//Execute the table creation
         Log.d("DBcreation",SQL_CREATE_ITEMS );
 
-
+        db.execSQL((CREATE_TABLE1));
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.d("workflow", "DB Onupgrade method Called");
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME1);
+        onCreate(db);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -118,6 +136,51 @@ public class DBHelper extends SQLiteOpenHelper {
     public  Cursor getData(String sql){
         SQLiteDatabase db = getReadableDatabase();
         return db.rawQuery(sql,null);
+    }
+
+
+
+
+
+    //add data
+    public void addID(addCart addCart){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DBHelper.ID,addCart.getID());
+        contentValues.put(DBHelper.Name,addCart.getName());
+        sqLiteDatabase = this.getWritableDatabase();
+        sqLiteDatabase.insert(DBHelper.TABLE_NAME1, null,contentValues);
+    }
+
+    public List<addCart> getCartList(){
+        String sql = " select * from  " + TABLE_NAME1;
+        sqLiteDatabase = this.getReadableDatabase();
+        List<addCart> storeCart = new ArrayList<>();
+        Cursor cursor = sqLiteDatabase.rawQuery(sql,null);
+        if(cursor.moveToFirst()){
+            do{
+                int count = Integer.parseInt(cursor.getString(0));
+                String ID = cursor.getString(1);
+                String Name = cursor.getString(2);
+                storeCart.add(new addCart(count,ID,Name));
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        return storeCart;
+    }
+
+    public void updateCart(addCart AddCart){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DBHelper.ID,AddCart.getID());
+        contentValues.put(DBHelper.Name,AddCart.getName());
+        sqLiteDatabase = this.getWritableDatabase();
+        sqLiteDatabase.update(TABLE_NAME1,contentValues,COUNT+ " = ? " , new String[]
+                {String.valueOf(AddCart.getCount())});
+    }
+
+    public void deleteCart(int count){
+        sqLiteDatabase = this.getWritableDatabase();
+        sqLiteDatabase.delete(TABLE_NAME1, COUNT + " = ?", new String[]
+                {String.valueOf(count)});
     }
 
 
