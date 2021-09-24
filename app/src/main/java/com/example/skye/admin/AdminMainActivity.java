@@ -203,15 +203,16 @@ public class AdminMainActivity extends AppCompatActivity {
             return false;
         }
 
+        if (itemCategory.length() == 0) {
+            itemCategory.setError("This field is required");
+            return false;
+        }
+
         if (itemDesc.length() == 0) {
             itemDesc.setError("This field is required");
             return false;
         }
 
-        if (itemCategory.length() == 0) {
-            itemCategory.setError("This field is required");
-            return false;
-        }
         if (itemPrice.length() == 0) {
             itemPrice.setError("This field is required");
             return false;

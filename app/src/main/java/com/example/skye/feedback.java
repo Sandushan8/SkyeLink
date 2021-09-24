@@ -65,17 +65,7 @@ public class feedback extends AppCompatActivity {
             }
         });
     }
-    public void openEditItemActivity(View view) {
-        Log.d("workflow", "goto EditItems activity");
-        Intent intent = new Intent(this, AdminMainActivity.class);
-        startActivity(intent);
-    }
 
-    public void open(View view) {
-        Log.d("workflow", "goto additem activity");
-        Intent intent = new Intent(this,ViewMobileHome.class);
-        startActivity(intent);
-    }
 
 
 }
