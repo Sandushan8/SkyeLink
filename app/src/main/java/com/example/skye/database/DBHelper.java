@@ -10,6 +10,9 @@ import android.util.Log;
 
 import androidx.annotation.RequiresApi;
 
+import com.example.skye.Payment;
+
+import java.util.jar.Attributes;
 
 import com.example.skye.addCart;
 
@@ -56,9 +59,44 @@ public class DBHelper extends SQLiteOpenHelper {
                         + ItemMaster.ItemsT.COLUMN_ItemImageView +
                         " BLOB" + ")";
 
+     //Execute the table creation
+
+
+//        Log.d("workflow", "DB onCreate method Login Called");
+//        String SQL_USER_ACCOUNT =
+//                "CREATE TABLE "
+//                        + UserAccounts.UserT.TABLE_NAME +
+//                        " ("
+//                        + UserAccounts.UserT.COLUMN_User_ID +
+//                        " INTEGER PRIMARY KEY AUTOINCREMENT, "
+//                        + UserAccounts.UserT.COLUMN_Cus_Email +
+//                        " TEXT, "
+//                        + UserAccounts.UserT.COLUMN_Cus_Password +
+//                        " TEXT, "
+//                        + UserAccounts.UserT.COLUMN_Cus_Address +
+//                        " TEXT, "
+//                        + UserAccounts.UserT.COLUMN_Cus_Phone +
+//                        " Text " + " )";
+//
+//        db.execSQL(SQL_USER_ACCOUNT);//Execute the table creation
+    //     Log.d("workflow","SQL_USER_ACCOUNT" );
+
+          String SQL_CREATE_PAYMENT_TABLE =
+                  "CREATE TABLE payment ("
+                          + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+                          + "name TEXT,"
+                          + "phoneNumber TEXT,"
+                          + "address TEXT, "
+                          + "email TEXT, "
+                          + "cardHolderName TEXT,"
+                          + "cardNumber TEXT,"
+                          + "cvv TEXT,"
+                          + "expiryDate TEXT,"
+                          + "amount REAL)";
+
+          db.execSQL(SQL_CREATE_PAYMENT_TABLE);
         db.execSQL(SQL_CREATE_ITEMS);//Execute the table creation
         Log.d("DBcreation",SQL_CREATE_ITEMS );
-
         db.execSQL((CREATE_TABLE1));
     }
 
@@ -92,6 +130,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return newRowID;
     }
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -138,7 +177,24 @@ public class DBHelper extends SQLiteOpenHelper {
         return db.rawQuery(sql,null);
     }
 
+    public long createPayment(String name,String phoneNumber,String address,String email,String cardHolderName,String cardNumber,String cvv,String expiryDate,Double amount){
 
+        SQLiteDatabase db = getWritableDatabase();
+        ContentValues values = new ContentValues();  //create a new map of values , where column names the key
+        values.put("name", name);
+        values.put("phoneNumber",phoneNumber);
+        values.put("address",address);
+        values.put("email",email);
+        values.put("cardHolderName",cardHolderName);
+        values.put("cardNumber",cardNumber);
+        values.put("cvv",cvv);
+        values.put("expiryDate",expiryDate);
+        values.put("amount",amount);
+
+       long rowid = db.insert("Payment",null,values);
+       Log.d("workflow", "DB create payment method Called");
+       return rowid;
+    }
 
 
 
@@ -177,11 +233,9 @@ public class DBHelper extends SQLiteOpenHelper {
                 {String.valueOf(AddCart.getCount())});
     }
 
-    public void deleteCart(int count){
+    public void deleteCart(int count) {
         sqLiteDatabase = this.getWritableDatabase();
         sqLiteDatabase.delete(TABLE_NAME1, COUNT + " = ?", new String[]
                 {String.valueOf(count)});
     }
-
-
 }

@@ -12,21 +12,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Skye">
+    <activity
+        android:name=".ViewVideo"
+        android:exported="true" />
         <activity
 
 
             android:name=".login.loginActivity"
-
-            android:name=".ViewVideo"
-            android:exported="true" />
-        <activity
-            android:name=".ViewCart"
-            android:exported="true" />
-        <activity
-            android:name=".itemRecordList"
-
-
-            android:name=".login.loginactivity"
 
             android:exported="true" >
             <intent-filter>
@@ -70,6 +62,12 @@
             android:exported="true" />
         <activity
             android:name=".CartMain"
+            android:exported="true" />
+        <activity
+        android:name=".OrderDetails"
+        android:exported="true" />
+        <activity
+            android:name=".CardDetails"
             android:exported="true" />
         <activity
             android:name=".MainActivity"
