@@ -81,12 +81,11 @@ public class itemRecordList extends AppCompatActivity {
 
             mList.add(new itemModel(id,itemName,itemCategory,itemSellPrice,itemDescription,image));
             Log.d("workflow",cursor.getString(4));
-            Log.d("workflow",cursor.getString(3));
         }
         mAdapter.notifyDataSetChanged();
 
         if(mList.size()==0){
-            Log.d("workflow","GGGGGGGGGGGGG");
+            Log.d("workflow","list array is empty");
             //if there is no record in table of database which means listview is empty
             Toast.makeText(this,"No Item Found",Toast.LENGTH_SHORT).show();
         }
@@ -99,7 +98,8 @@ public class itemRecordList extends AppCompatActivity {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(itemRecordList.this);
                 Log.d("worflow","Alert builder called");
 
-                dialog.setTitle("Choose an action");
+                dialog.setTitle("Choose an action" );
+
                 dialog.setItems(items, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -187,7 +187,7 @@ public class itemRecordList extends AppCompatActivity {
         dialogDelete.show();
     }
 
-
+   // retrive select id data and fill the textbox old data
     private  void showDialogUpdate(Activity activity, final  int position){
         Dialog dialog = new Dialog(activity);
         dialog.setContentView(R.layout.itemupdate);
@@ -219,7 +219,6 @@ public class itemRecordList extends AppCompatActivity {
 
             mList.add(new itemModel(id,itemName,itemCategory,itemSellPrice,itemDescription,image));
             Log.d("workflow",cursor.getString(4));
-            Log.d("workflow",cursor.getString(3));
         }
 
 
@@ -241,6 +240,7 @@ public class itemRecordList extends AppCompatActivity {
 
         });
 
+        //updateSql query
         btnUpdate.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
@@ -273,6 +273,7 @@ public class itemRecordList extends AppCompatActivity {
 
 
     }
+
 
     private void updateRecordList() {
 
@@ -311,7 +312,7 @@ public class itemRecordList extends AppCompatActivity {
                 Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
                 galleryIntent.setType("image/*");
                 startActivityForResult(galleryIntent, REQUEST_CODE_GALLERY);
-                Log.d("Yes", "Don't have permission to access file location");
+                Log.d("Yes", " have permission to access file location");
             } else {
                 Toast.makeText(this, "Don't have permission to access file location ", Toast.LENGTH_SHORT).show();
                 Log.d("Yes", "Don't have permission to access file location");
@@ -345,7 +346,7 @@ public class itemRecordList extends AppCompatActivity {
     }
 
     private boolean CheckAllFields() {
-        Log.d("workflow", "Add Item CheckAllFields  method  Called");
+        Log.d("workflow", "Add update CheckAllFields  method  Called");
         if (txtEdtItemName.length() == 0) {
             txtEdtItemName.setError("This field is required");
             return false;
@@ -371,6 +372,3 @@ public class itemRecordList extends AppCompatActivity {
 
 }
 
-//design row for the listView
-//create class model
-//create custom adapter for listView

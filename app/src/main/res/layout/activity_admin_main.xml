@@ -109,6 +109,7 @@
             android:layout_toEndOf="@+id/btnAdd"
             android:background="@drawable/btnstyle"
             android:minWidth="160dp"
+            android:minHeight="48dp"
             android:text="@string/btn_view_item" />
 
 

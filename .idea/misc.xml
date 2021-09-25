@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/kumar/AndroidStudioProjects/M/Maduka/app/src/main/res/drawable-anydpi/ViewItems.xml" value="0.3546875" />
+        <entry key="..\:/Users/kumar/AndroidStudioProjects/M/Maduka/app/src/main/res/layout/activity_admin_main.xml" value="0.5" />
+        <entry key="..\:/Users/kumar/AndroidStudioProjects/M/Maduka/app/src/main/res/layout/activity_item_record_list.xml" value="0.25761772853185594" />
+        <entry key="..\:/Users/kumar/AndroidStudioProjects/M/Maduka/app/src/main/res/layout/activity_loginactivity.xml" value="0.334375" />
+        <entry key="..\:/Users/kumar/AndroidStudioProjects/M/Maduka/app/src/main/res/layout/activity_main.xml" value="0.334375" />
+        <entry key="..\:/Users/kumar/AndroidStudioProjects/M/Maduka/app/src/main/res/layout/activity_view_mobile_home.xml" value="0.2612359550561798" />
+        <entry key="..\:/Users/kumar/AndroidStudioProjects/M/Maduka/app/src/main/res/layout/itemupdate.xml" value="0.334375" />
+        <entry key="..\:/Users/kumar/AndroidStudioProjects/M/Maduka/app/src/main/res/menu/adminbottommenu.xml" value="0.334375" />
         <entry key="..\:/Users/kumar/AndroidStudioProjects/Maduka/app/src/main/res/drawable-mdpi/white_recommeded_btn.xml" value="0.35989583333333336" />
         <entry key="..\:/Users/kumar/AndroidStudioProjects/Maduka/app/src/main/res/drawable/blue_recommend_btn.xml" value="0.359375" />
         <entry key="..\:/Users/kumar/AndroidStudioProjects/Maduka/app/src/main/res/drawable/btnstyle.xml" value="0.38125" />

@@ -37,6 +37,7 @@ import java.io.ByteArrayOutputStream;
 
 public class AdminMainActivity extends AppCompatActivity {
 
+    // connect xml part views
     EditText itemName, itemCategory, itemDesc, itemPrice;
     Button mBtnAdd, mBtnList;
     public boolean isfieldsvalidated=false;
@@ -50,8 +51,10 @@ public class AdminMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_admin_main);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("New Item Records");
+        actionBar.setTitle(" New Item Records");
 
+
+        // text field identify
         itemName = findViewById(R.id.itemName);
         itemCategory = findViewById(R.id.itemCategory);
         itemDesc = findViewById(R.id.itemDescription);
@@ -59,17 +62,7 @@ public class AdminMainActivity extends AppCompatActivity {
         mBtnList = findViewById(R.id.btnList);
         mImageView = findViewById(R.id.imageView);
 
-        mImageView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                ActivityCompat.requestPermissions(
-                        AdminMainActivity.this,
-                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                        REQUEST_CODE_GALLERY
-                );
-            }
-        });
 
         // show record list
         mBtnList.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +74,7 @@ public class AdminMainActivity extends AppCompatActivity {
         });
 
 
-
+        //Bottom navigation bar
         BottomNavigationView bottomNavigationView = findViewById(R.id.admin_bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.customers);
 
@@ -113,10 +106,23 @@ public class AdminMainActivity extends AppCompatActivity {
             }
         });
 
+        // permission access the external storage  and gallery
+        mImageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                ActivityCompat.requestPermissions(
+                        AdminMainActivity.this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        REQUEST_CODE_GALLERY
+                );
+            }
+        });
+
 
     }
 
-
+   // image  converter
     private static byte[] imageViewToByte(ImageView image) {
         Bitmap bitmap = ((BitmapDrawable)image.getDrawable()).getBitmap();
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -125,7 +131,7 @@ public class AdminMainActivity extends AppCompatActivity {
         return  byteArray;
     }
 
-
+   //
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == REQUEST_CODE_GALLERY)
@@ -133,7 +139,7 @@ public class AdminMainActivity extends AppCompatActivity {
                 Intent galleryIntent = new Intent(Intent.ACTION_GET_CONTENT);
                 galleryIntent.setType("image/*");
                 startActivityForResult(galleryIntent, REQUEST_CODE_GALLERY);
-                Log.d("Yes", "Don't have permission to access file location");
+                Log.d("Yes", " permission to access file location");
             } else {
                 Toast.makeText(this, "Don't have permission to access file location ", Toast.LENGTH_SHORT).show();
                 Log.d("Yes", "Don't have permission to access file location");
@@ -142,6 +148,7 @@ public class AdminMainActivity extends AppCompatActivity {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 
+    //crope image into the gallery
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if (requestCode == REQUEST_CODE_GALLERY && resultCode == RESULT_OK) {
@@ -170,15 +177,14 @@ public class AdminMainActivity extends AppCompatActivity {
 
 
 
-
+    // items adding  db
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void addItems(View view) {
         Log.d("workflow", "Add Item addItem  method  Called");
-        isfieldsvalidated = CheckAllFields();
+        isfieldsvalidated = CheckAllFields(); // check text field empty validation
 
         if (isfieldsvalidated) {
-            DBHelper dbHelper = new DBHelper(this);
-            //removedefault(issetasdefault);
+            DBHelper dbHelper = new DBHelper(this);// calling db helper class
 
             long val;
             val = dbHelper.addItem(itemName.getText().toString(),
@@ -195,7 +201,7 @@ public class AdminMainActivity extends AppCompatActivity {
         }
     }
 
-
+    // form validation
     private boolean CheckAllFields() {
         Log.d("workflow", "Add Item CheckAllFields  method  Called");
         if (itemName.length() == 0) {

@@ -11,15 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.skye.FoodDomain;
+import com.example.skye.itemDomain;
 import com.example.skye.R;
 
 import java.util.ArrayList;
 
 public class RecommendedAdapter extends RecyclerView.Adapter<RecommendedAdapter.ViewHolder> {
-    ArrayList<FoodDomain> RecommendedDomains;
+    ArrayList<itemDomain> RecommendedDomains;
 
-    public RecommendedAdapter(ArrayList<FoodDomain> RecommendedDomains) {
+    public RecommendedAdapter(ArrayList<itemDomain> RecommendedDomains) {
         this.RecommendedDomains = RecommendedDomains;
     }
 
