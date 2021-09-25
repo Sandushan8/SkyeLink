@@ -1,4 +1,4 @@
-package com.example.skye;
+package com.example.skye.admin;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,21 +16,25 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.skye.MainActivity;
+import com.example.skye.R;
 import com.example.skye.database.DBHelper;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
@@ -87,42 +91,73 @@ public class itemRecordList extends AppCompatActivity {
             Toast.makeText(this,"No Item Found",Toast.LENGTH_SHORT).show();
         }
 
-      mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-          @Override
-          public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
-              CharSequence[] items = {"Update","Delete"};
+        mListView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long l) {
+                CharSequence[] items = {"Update","Delete"};
 
-              AlertDialog.Builder dialog = new AlertDialog.Builder(itemRecordList.this);
-                    Log.d("worflow","Alert builder called");
+                AlertDialog.Builder dialog = new AlertDialog.Builder(itemRecordList.this);
+                Log.d("worflow","Alert builder called");
 
-              dialog.setTitle("Choose an action");
-              dialog.setItems(items, new DialogInterface.OnClickListener() {
-                  @Override
-                  public void onClick(DialogInterface dialogInterface, int i) {
-                      if(i == 0){
-                          Cursor c = dbHelper.getData("select ItemCode from Items");
-                          ArrayList<Integer> arrID = new ArrayList<Integer>();
-                          while ((c.moveToNext())){
-                              arrID.add(c.getInt(0));
-                          }
-                          //show update dialog
-                          showDialogUpdate(itemRecordList.this,arrID.get(position));
-                      }
-                      if(i == 1){
-                          Cursor c = dbHelper.getData("select ItemCode from Items");
-                          ArrayList<Integer> arrID = new ArrayList<Integer>();
-                          while ((c.moveToNext())){
-                              arrID.add(c.getInt(0));
-                          }
-                          //show update dialog
-                          showDialogDelete(arrID.get(position));
-                      }
-                  }
-              });
-              dialog.show();
-              return true;
-          }
-      });
+                dialog.setTitle("Choose an action");
+                dialog.setItems(items, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        if(i == 0){
+                            Cursor c = dbHelper.getData("select ItemCode from Items");
+                            ArrayList<Integer> arrID = new ArrayList<Integer>();
+                            while ((c.moveToNext())){
+                                arrID.add(c.getInt(0));
+                            }
+                            //show update dialog
+                            showDialogUpdate(itemRecordList.this,arrID.get(position));
+                        }
+                        if(i == 1){
+                            Cursor c = dbHelper.getData("select ItemCode from Items");
+                            ArrayList<Integer> arrID = new ArrayList<Integer>();
+                            while ((c.moveToNext())){
+                                arrID.add(c.getInt(0));
+                            }
+                            //show update dialog
+                            showDialogDelete(arrID.get(position));
+                        }
+                    }
+                });
+                dialog.show();
+                return true;
+            }
+        });
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.admin_bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.items);
+
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext()
+                                , MainActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+                    case R.id.customer:
+                        startActivity(new Intent(getApplicationContext()
+                                , AdminMainActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.items:
+
+                        return true;
+
+
+
+                }
+
+                return false;
+            }
+        });
 
     }
 
@@ -134,9 +169,9 @@ public class itemRecordList extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 try {
-                     dbHelper.deleteItem(idRecord);
-                     recreate();
-                     Toast.makeText(itemRecordList.this,"Delete Successfully",Toast.LENGTH_SHORT).show();
+                    dbHelper.deleteItem(idRecord);
+                    recreate();
+                    Toast.makeText(itemRecordList.this,"Delete Successfully",Toast.LENGTH_SHORT).show();
                 }
                 catch (Exception e){
                     Log.d("error",e.getMessage());
@@ -165,51 +200,74 @@ public class itemRecordList extends AppCompatActivity {
         txtEdtItemDesc = dialog.findViewById(R.id.itemDescription);
         btnUpdate = dialog.findViewById(R.id.btnUpdate);
 
+        // get  data row click from sqlite
+        Cursor cursor = dbHelper.getData("select * from Items where ItemCode = "+position);
+        mList.clear();
+        while (cursor.moveToNext()){
+            int id  = cursor.getInt(0);
+            String itemName = cursor.getString(1);
+            txtEdtItemName.setText(itemName);
+            String itemCategory = cursor.getString(2);
+            txtEdtItemCategory.setText(itemCategory);
+            String itemDescription = cursor.getString(3);
+            txtEdtItemDesc.setText(itemDescription);
+            double itemSellPrice = cursor.getDouble(4);
+            txtEdtPrice.setText(String.valueOf(itemSellPrice));
+            byte[] image = cursor.getBlob(5);
+            imageViewIcon.setImageBitmap(BitmapFactory.decodeByteArray(image,0, image.length));
+            
+
+            mList.add(new itemModel(id,itemName,itemCategory,itemSellPrice,itemDescription,image));
+            Log.d("workflow",cursor.getString(4));
+            Log.d("workflow",cursor.getString(3));
+        }
+
+
         //set width of dialog
         int width = (int)(activity.getResources().getDisplayMetrics().widthPixels* 0.95);
         int height = (int)(activity.getResources().getDisplayMetrics().heightPixels* 0.7);
         dialog.getWindow().setLayout(width,height);
         dialog.show();
 
-       imageViewIcon.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               ActivityCompat.requestPermissions(
-                       itemRecordList.this,
-                       new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
-                       REQUEST_CODE_GALLERY
-               );
-           }
+        imageViewIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ActivityCompat.requestPermissions(
+                        itemRecordList.this,
+                        new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},
+                        REQUEST_CODE_GALLERY
+                );
+            }
 
-       });
+        });
 
-      btnUpdate.setOnClickListener(new View.OnClickListener() {
-          @RequiresApi(api = Build.VERSION_CODES.O)
-          @Override
-          public void onClick(View view) {
-              Log.d("workflow", "Add Item addItem  method  Called");
-              isfieldsvalidated = CheckAllFields();
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View view) {
+                Log.d("workflow", "Add Item addItem  method  Called");
+                isfieldsvalidated = CheckAllFields();
 
-              if (isfieldsvalidated) {
-                  DBHelper dbHelper = new DBHelper(itemRecordList.this);
-                  //removedefault(issetasdefault);
+                if (isfieldsvalidated) {
+                    DBHelper dbHelper = new DBHelper(itemRecordList.this);
+                    //removedefault(issetasdefault);
 
-                  long val;
-                  val = dbHelper.updateItem(position,txtEdtItemName.getText().toString(),
-                          txtEdtItemCategory.getText().toString(),
-                          Double.parseDouble(txtEdtPrice.getText().toString()),
-                          txtEdtItemDesc.getText().toString(),
-                          imageViewToByte(imageViewIcon));
+                    long val;
+                    val = dbHelper.updateItem(position,txtEdtItemName.getText().toString(),
+                            txtEdtItemCategory.getText().toString(),
+                            Double.parseDouble(txtEdtPrice.getText().toString()),
+                            txtEdtItemDesc.getText().toString(),
+                            imageViewToByte(imageViewIcon));
 
-                  dialog.dismiss();
-                  Toast.makeText(getApplicationContext(),"Update Successflly",Toast.LENGTH_SHORT).show();
+                    dialog.dismiss();
+                    Toast.makeText(getApplicationContext(),"Update Successflly",Toast.LENGTH_SHORT).show();
 
-                  updateRecordList();
-              }
+                    updateRecordList();
+                }
 
 
-          }
-      });
+            }
+        });
 
 
 

@@ -1,4 +1,4 @@
-package com.example.skye;
+package com.example.skye.admin;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,15 +16,21 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.skye.CartMain;
+import com.example.skye.MainActivity;
+import com.example.skye.Paymentmain;
+import com.example.skye.R;
 import com.example.skye.database.DBHelper;
+import com.example.skye.feedback;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageActivity;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.ByteArrayOutputStream;
@@ -70,9 +76,44 @@ public class AdminMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 //start item record
-                startActivity(new Intent(AdminMainActivity.this,itemRecordList.class));
+                startActivity(new Intent(AdminMainActivity.this, itemRecordList.class));
             }
         });
+
+
+
+        BottomNavigationView bottomNavigationView = findViewById(R.id.admin_bottom_navigation);
+        bottomNavigationView.setSelectedItemId(R.id.customers);
+
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.home:
+                        startActivity(new Intent(getApplicationContext()
+                                , MainActivity.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.items:
+                        startActivity(new Intent(getApplicationContext()
+                                , itemRecordList.class));
+                        overridePendingTransition(0,0);
+                        return true;
+
+                    case R.id.customers:
+
+                        return true;
+
+
+
+                }
+
+                return false;
+            }
+        });
+
+
     }
 
 
@@ -146,7 +187,6 @@ public class AdminMainActivity extends AppCompatActivity {
                     itemDesc.getText().toString(),
                     imageViewToByte(mImageView));
 
-            //Snackbar.make(view,"Record Added Succesfully", BaseTransientBottomBar.LENGTH_LONG).setAction("OK",null).show();
 
             Toast.makeText(this, "Record Added Succesfully", Toast.LENGTH_SHORT).show();
             itemName.setText("");itemDesc.setText("");itemPrice.setText("");itemCategory.setText("");

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
+    android:background="@color/white"
     tools:context=".Paymentmain"
 
     >
@@ -46,7 +46,9 @@
                     android:layout_gravity="center"
                     android:gravity="center"
                     android:text="Payment Details"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#000000"
+                    android:textColorHighlight="#000000"
+                    android:textColorLink="#000000"
                     android:textSize="48sp"
                     android:textStyle="bold" />
             </LinearLayout>
@@ -78,7 +80,10 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="  Name"
-                            android:textColor="#FFFFFF"
+                            android:textColor="#000000"
+                            android:textColorHighlight="#000000"
+                            android:textColorHint="#000000"
+                            android:textColorLink="#000000"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -94,8 +99,10 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:gravity="center"
-                            android:hint="  John De Silve"
+                            android:hint="Kamal Sirivardhana"
                             android:inputType="textPersonName"
+                            android:textColor="#9A8282"
+                            android:textColorHighlight="#9A8282"
                             android:textColorHint="#9A8282"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -112,7 +119,9 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:text="  Contact Number"
-                            android:textColor="#FFFFFF"
+                            android:textColor="#000000"
+                            android:textColorHighlight="#000000"
+                            android:textColorHint="#000000"
                             android:textSize="24sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -130,7 +139,10 @@
                             android:gravity="center"
                             android:hint="  0700000000"
                             android:inputType="phone"
+                            android:textColor="#9A8282"
+                            android:textColorHighlight="#9A8282"
                             android:textColorHint="#9A8282"
+                            android:textColorLink="#9A8282"
                             android:textSize="20sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -162,9 +174,12 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:gravity="center"
-                            android:hint="  38/B Lotus rd, Colombo"
+                            android:hint="78/B Vihara Rd, Kandy"
                             android:inputType="textPostalAddress"
+                            android:textColor="#9A8282"
+                            android:textColorHighlight="#9A8282"
                             android:textColorHint="#9A8282"
+                            android:textColorLink="#9A8282"
                             android:textSize="20sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -196,9 +211,12 @@
                             android:layout_height="wrap_content"
                             android:ems="10"
                             android:gravity="center"
-                            android:hint="  john12@gmail.com"
+                            android:hint="  kamasiri45@gmail.com"
                             android:inputType="textEmailAddress"
+                            android:textColor="#9A8282"
+                            android:textColorHighlight="#9A8282"
                             android:textColorHint="#9A8282"
+                            android:textColorLink="#9A8282"
                             android:textSize="20sp"
                             android:textStyle="bold" />
                     </LinearLayout>
@@ -212,6 +230,7 @@
                             android:id="@+id/checkBox2"
                             android:layout_width="match_parent"
                             android:layout_height="74dp"
+                            android:buttonTint="#263791"
                             android:text="  I agree to the Tearms and Conditions"
                             android:textColor="@color/black"
                             android:textColorHighlight="@color/black"

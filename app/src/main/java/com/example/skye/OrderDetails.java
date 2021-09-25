@@ -23,5 +23,7 @@ public class OrderDetails extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(com.example.skye.OrderDetails.this, Paymentmain.class);
                 startActivity(intent);
+            }
+        });
     }
 }

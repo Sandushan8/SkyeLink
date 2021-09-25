@@ -77,22 +77,6 @@
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
-                    <TextView
-                        android:id="@+id/textView10"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="2021.08.31"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
-
-                    <ImageButton
-                        android:id="@+id/imageButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:foregroundGravity="center"
-                        app:srcCompat="@android:drawable/btn_dialog" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -105,7 +89,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="John De Silva"
+                        android:text="Kamal Perera"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -123,7 +107,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="0700000000"
+                        android:text="0711234567"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -132,19 +116,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="john23@gmail.com"
+                        android:text="kamal23@gmail.com"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
-                    <Button
-                        android:id="@+id/edit"
-                        android:layout_width="136dp"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="EDIT"
-                        android:textSize="16sp"
-                        android:textStyle="bold" />
                 </LinearLayout>
 
                 <LinearLayout

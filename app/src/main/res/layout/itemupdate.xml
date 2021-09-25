@@ -4,7 +4,8 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="10dp"
+    android:background="@drawable/adminbackg"
+    android:padding="1dp"
     android:layout_height="match_parent">
 
     <ImageView
@@ -16,37 +17,45 @@
 
     <EditText
         android:id="@+id/itemName"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
+        android:background="@drawable/edit_btn"
         android:ems="10"
+        android:paddingLeft="20dp"
         android:hint="item Name"
         android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/itemCategory"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:ems="10"
+        android:paddingLeft="20dp"
+        android:background="@drawable/edit_btn"
         android:hint="itemCategory "
         android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/itemDescription"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:ems="10"
+        android:paddingLeft="20dp"
+        android:background="@drawable/edit_btn"
         android:hint="ItemDescription "
         android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/itemSellPrice"
-        android:layout_width="wrap_content"
+        android:layout_width="280dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="18dp"
         android:ems="10"
+        android:paddingLeft="20dp"
+        android:background="@drawable/edit_btn"
         android:hint="Item Sell Price "
         android:inputType="numberDecimal"
         android:minHeight="48dp" />
@@ -58,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/itemSellPrice"
         android:layout_marginTop="26dp"
-        android:background="@color/pacific_blue"
+        android:background="@drawable/btnstyle"
         android:onClick="addItems"
         android:text="Update "
         android:textColor="#4E342E" />

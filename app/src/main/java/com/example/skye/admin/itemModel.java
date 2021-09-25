@@ -1,4 +1,4 @@
-package com.example.skye;
+package com.example.skye.admin;
 
 public class itemModel {
     private  int itemCode;
@@ -7,6 +7,9 @@ public class itemModel {
     private  double itemSellPrice;
     private  String itemDescription;
     private byte[] image;
+
+
+
 
     public itemModel(int itemCode, String itemName, String itemCategory, Double itemSellPrice, String itemDescription, byte[] image) {
         this.itemCode = itemCode;
@@ -60,6 +63,7 @@ public class itemModel {
     public void setImage(byte[] image) {
         this.image = image;
     }
+
 
 
 }

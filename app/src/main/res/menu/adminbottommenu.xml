@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/customer"
+        android:title="AdminHome"
+        android:icon="@drawable/profilemain"/>
+
+    <item
+        android:id="@+id/home"
+        android:title="CusHome"
+        android:icon="@drawable/home_icon"/>
+
+
+    <item
+        android:id="@+id/items"
+        android:title="ViewItem"
+        android:icon="@drawable/feedback"/>
+
+
+
+
+</menu>

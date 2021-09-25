@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background2"
+    android:background="@color/white"
     tools:context=".CardDetails">
 
     <LinearLayout
@@ -27,7 +27,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center"
                 android:text="Card Details"
-                android:textColor="#FFFFFF"
+                android:textColor="#000000"
                 android:textSize="48sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -71,6 +71,10 @@
                         android:layout_height="40dp"
                         android:gravity="center"
                         android:text="Cardholder's Name"
+                        android:textColor="#000000"
+                        android:textColorHighlight="#000000"
+                        android:textColorHint="#000000"
+                        android:textColorLink="#000000"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -82,7 +86,10 @@
                         android:gravity="center"
                         android:hint="Cardholder's Name"
                         android:inputType="textPersonName"
-                        android:textColorHint="#2DFFFFFF"
+                        android:textColor="#03A9F4"
+                        android:textColorHighlight="#3F51B5"
+                        android:textColorHint="#2A7DA3"
+                        android:textColorLink="#03A9F4"
                         android:textStyle="bold" />
 
                 </LinearLayout>
@@ -98,6 +105,10 @@
                         android:layout_height="55dp"
                         android:gravity="center"
                         android:text="Card Number"
+                        android:textColor="#000000"
+                        android:textColorHighlight="#000000"
+                        android:textColorHint="#000000"
+                        android:textColorLink="#000000"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -109,7 +120,10 @@
                         android:gravity="center"
                         android:hint="Card Number"
                         android:inputType="textPersonName"
-                        android:textColorHint="#2DFFFFFF"
+                        android:textColor="#03A9F4"
+                        android:textColorHighlight="#3F51B5"
+                        android:textColorHint="#2A7DA3"
+                        android:textColorLink="#03A9F4"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -126,7 +140,9 @@
                         android:gravity="center"
                         android:hint="CVV"
                         android:inputType="number"
-                        android:textColorHint="@color/black"
+                        android:textColor="#000000"
+                        android:textColorHighlight="#000000"
+                        android:textColorHint="#000000"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -144,7 +160,10 @@
                         android:gravity="center"
                         android:hint="MM/YY"
                         android:inputType="textPersonName"
-                        android:textColorHint="@color/black"
+                        android:textColor="#000000"
+                        android:textColorHighlight="#000000"
+                        android:textColorHint="#000000"
+                        android:textColorLink="#000000"
                         android:textStyle="bold" />
                 </LinearLayout>
 
@@ -161,7 +180,10 @@
                         android:gravity="center"
                         android:hint="Amount"
                         android:inputType="number"
-                        android:textColorHint="@color/black"
+                        android:textColor="#000000"
+                        android:textColorHighlight="#000000"
+                        android:textColorHint="#000000"
+                        android:textColorLink="#000000"
                         android:textSize="18dp"
                         android:textStyle="bold" />
                 </LinearLayout>
@@ -180,6 +202,8 @@
                         android:foregroundGravity="center_vertical"
                         android:gravity="center"
                         android:text="BACK"
+                        android:textColorHighlight="#2C3D9A"
+                        android:textColorLink="#2C3D9A"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 
@@ -192,6 +216,8 @@
                         android:foregroundGravity="center_vertical"
                         android:gravity="center"
                         android:text="SUBMIT"
+                        android:textColorHighlight="#2C3D9A"
+                        android:textColorLink="#2C3D9A"
                         android:textSize="20sp"
                         android:textStyle="bold" />
                 </LinearLayout>

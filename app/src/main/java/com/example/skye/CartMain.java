@@ -16,7 +16,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 public class CartMain extends AppCompatActivity {
 
     EditText editText_ID,editText_Name;
-    Button button_add,button_view;
+    Button button_add,button_view,button_support;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +27,7 @@ public class CartMain extends AppCompatActivity {
 
         button_add = findViewById(R.id.button_add);
         button_view = findViewById(R.id.button_view);
+        button_support = findViewById(R.id.button_support);
 
 
         button_add.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +61,13 @@ public class CartMain extends AppCompatActivity {
             }
         });
 
+        button_support.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CartMain.this,ViewVideo.class);
+                startActivity(intent);
+            }
+        });
 
 
 

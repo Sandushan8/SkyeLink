@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:id="@+id/box"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:background="@drawable/blue_recommend_btn"
+    android:elevation="3dp">
+
+    <TextView
+        android:id="@+id/txtPrice1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Rs 0.0"
+        android:textColor="#FF3D00"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/addBtn"
+        app:layout_constraintEnd_toStartOf="@+id/addBtn"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageMobile1"
+        app:layout_constraintTop_toBottomOf="@+id/itemDescMobile1" />
+
+    <ImageView
+        android:id="@+id/imageMobile1"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cat_1" />
+
+    <TextView
+        android:id="@+id/txtMobileName1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Apple 12 Pro Max"
+        android:textColor="#373B54"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/imageMobile1"
+        app:layout_constraintTop_toBottomOf="@+id/imageMobile1" />
+
+    <ImageView
+        android:id="@+id/addBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageMobile1"
+        app:srcCompat="@drawable/plus_circle" />
+
+    <TextView
+        android:id="@+id/itemDescMobile1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="TextView"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/imageMobile1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/txtMobileName1"
+        app:layout_constraintTop_toBottomOf="@+id/txtMobileName1" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
