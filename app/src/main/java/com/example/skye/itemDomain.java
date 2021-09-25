@@ -2,7 +2,7 @@ package com.example.skye;
 
 import java.io.Serializable;
 
-public class FoodDomain implements Serializable {
+public class itemDomain implements Serializable {
     private String title;
     private String pic;
     private String description;
@@ -12,7 +12,7 @@ public class FoodDomain implements Serializable {
     private int calories;
     private int numberInCart;
 
-    public FoodDomain(String title, String pic, String description, Double fee, int star, int time, int calories) {
+    public itemDomain(String title, String pic, String description, Double fee, int star, int time, int calories) {
         this.title = title;
         this.pic = pic;
         this.description = description;
