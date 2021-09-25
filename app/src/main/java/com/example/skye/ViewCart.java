@@ -7,6 +7,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.example.skye.database.DBHelper;
+
 import java.util.List;
 
 public class ViewCart extends AppCompatActivity {
@@ -22,7 +24,7 @@ public class ViewCart extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        DbCart dbCart= new DbCart(this);
+        DBHelper dbCart= new DBHelper(this);
         List<addCart> storecart = dbCart.getCartList();
 
         if(storecart.size()>0){

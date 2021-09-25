@@ -14,9 +14,24 @@ import com.example.skye.Payment;
 
 import java.util.jar.Attributes;
 
+import com.example.skye.addCart;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DATABASE_NAME = "mobileDB.db";
+    private static final String TABLE_NAME1 ="cart1";
+    //columns
+    private static final String COUNT = "count";
+    private static final String ID = "ID";
+    private static final String Name = "Name";
+    private SQLiteDatabase sqLiteDatabase;
+
+    //creating table query
+    private static final String CREATE_TABLE1 = " create table " + TABLE_NAME1 + " ( "+ COUNT + " INTEGER PRIMARY KEY AUTOINCREMENT," + ID + " TEXT NOT NULL," +Name+ " TEXT NOT NULL); ";
+
 
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
@@ -26,7 +41,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {     //creating the table
 
-    //    Log.d("workflow", "DB onCreate method Called");
+        Log.d("workflow", "DB onCreate method Called");
         String SQL_CREATE_ITEMS =
                 "CREATE TABLE "
                         + ItemMaster.ItemsT.TABLE_NAME +
@@ -45,7 +60,6 @@ public class DBHelper extends SQLiteOpenHelper {
                         " BLOB" + ")";
 
      //Execute the table creation
-     //   Log.d("DBcreation","SQL_CREATE_ITEMS" );
 
 
 //        Log.d("workflow", "DB onCreate method Login Called");
@@ -81,19 +95,22 @@ public class DBHelper extends SQLiteOpenHelper {
                           + "amount REAL)";
 
           db.execSQL(SQL_CREATE_PAYMENT_TABLE);
-        db.execSQL(SQL_CREATE_ITEMS);
+        db.execSQL(SQL_CREATE_ITEMS);//Execute the table creation
+        Log.d("DBcreation",SQL_CREATE_ITEMS );
+        db.execSQL((CREATE_TABLE1));
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.d("workflow", "DB Onupgrade method Called");
-
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME1);
+        onCreate(db);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public long addItem(String itemname, String ItemCategory, double sellprice, String itemdescription,byte[] image) //enter all the parameter to be added to DB
     {
-        Log.d("workflow", "Inside DB addItems method Called");
+        Log.d("workflow", "DB addItems method Called");
 
 
         SQLiteDatabase db = getWritableDatabase();// get the data repository in writable mode
@@ -177,5 +194,48 @@ public class DBHelper extends SQLiteOpenHelper {
        long rowid = db.insert("Payment",null,values);
        Log.d("workflow", "DB create payment method Called");
        return rowid;
+    }
+
+
+
+    //add data
+    public void addID(addCart addCart){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DBHelper.ID,addCart.getID());
+        contentValues.put(DBHelper.Name,addCart.getName());
+        sqLiteDatabase = this.getWritableDatabase();
+        sqLiteDatabase.insert(DBHelper.TABLE_NAME1, null,contentValues);
+    }
+
+    public List<addCart> getCartList(){
+        String sql = " select * from  " + TABLE_NAME1;
+        sqLiteDatabase = this.getReadableDatabase();
+        List<addCart> storeCart = new ArrayList<>();
+        Cursor cursor = sqLiteDatabase.rawQuery(sql,null);
+        if(cursor.moveToFirst()){
+            do{
+                int count = Integer.parseInt(cursor.getString(0));
+                String ID = cursor.getString(1);
+                String Name = cursor.getString(2);
+                storeCart.add(new addCart(count,ID,Name));
+            }while(cursor.moveToNext());
+        }
+        cursor.close();
+        return storeCart;
+    }
+
+    public void updateCart(addCart AddCart){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(DBHelper.ID,AddCart.getID());
+        contentValues.put(DBHelper.Name,AddCart.getName());
+        sqLiteDatabase = this.getWritableDatabase();
+        sqLiteDatabase.update(TABLE_NAME1,contentValues,COUNT+ " = ? " , new String[]
+                {String.valueOf(AddCart.getCount())});
+    }
+
+    public void deleteCart(int count) {
+        sqLiteDatabase = this.getWritableDatabase();
+        sqLiteDatabase.delete(TABLE_NAME1, COUNT + " = ?", new String[]
+                {String.valueOf(count)});
     }
 }

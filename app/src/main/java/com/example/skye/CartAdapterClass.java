@@ -13,18 +13,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.skye.database.DBHelper;
+
 import java.util.List;
 
 public class CartAdapterClass extends RecyclerView.Adapter<CartAdapterClass.ViewHolder> {
 
     List<addCart> cart;
     Context context;
-    DbCart dbCart;
+    DBHelper dbCart;
 
     public CartAdapterClass(List<addCart> cart, Context context) {
         this.cart = cart;
         this.context = context;
-        dbCart = new DbCart(context);
+        dbCart = new DBHelper(context);
 
     }
 
@@ -66,7 +68,7 @@ public class CartAdapterClass extends RecyclerView.Adapter<CartAdapterClass.View
         holder.button_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                dbCart.deleteCat(addCart.getCount());
+                dbCart.deleteCart(addCart.getCount());
                 cart.remove(position);
                 notifyDataSetChanged();
 
