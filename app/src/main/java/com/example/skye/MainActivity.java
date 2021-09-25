@@ -3,7 +3,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.skye.admin.*;
+
 import com.example.skye.Adapter.CategoryAdapter;
 
 import android.content.Intent;
@@ -88,11 +88,11 @@ public class MainActivity extends AppCompatActivity {
 
         ArrayList<CategoryDomain> categoryList = new ArrayList<>();
         categoryList.add(new CategoryDomain("MobilePhone", "cat_1"));
-        categoryList.add(new CategoryDomain("Laptop", "apple12pro"));
+        categoryList.add(new CategoryDomain("Camera", "cat_1"));
         categoryList.add(new CategoryDomain("Headset", "cat_1"));
         categoryList.add(new CategoryDomain("Phone Caseses", "cat_1"));
         categoryList.add(new CategoryDomain("Headset", "cat_1"));
-        categoryList.add(new CategoryDomain("Phone Caseses", "cat_1"));
+        categoryList.add(new CategoryDomain("Others", "cat_1"));
 
         adapter = new CategoryAdapter(categoryList);
         recyclerViewCategotyList.setAdapter(adapter);
@@ -104,15 +104,15 @@ public class MainActivity extends AppCompatActivity {
         recyclerViewPopularList = findViewById(R.id.view2);
         recyclerViewPopularList.setLayoutManager(linearLayoutManager);
 
-        ArrayList<FoodDomain> foodlist = new ArrayList<>();
-        foodlist.add(new FoodDomain("Apple 12 Pro", "cat_1", "slices pepperoni ,mozzarella cheese, fresh oregano,  ground black pepper, pizza sauce", 13.00, 5, 20, 1000));
-        foodlist.add(new FoodDomain("Apple 11 Pro", "cat_1", "beef, Gouda Cheese, Special sauce, Lettuce, tomato ", 15.20, 4, 18, 1500));
-        foodlist.add(new FoodDomain("Apple  Pro Max", "cat_1", " olive oil, Vegetable oil, pitted Kalamata, cherry tomatoes, fresh oregano, basil", 11.0, 3, 16, 800));
-        foodlist.add(new FoodDomain("Apple 12 Mini", "cat_1", "slices pepperoni ,mozzarella cheese, fresh oregano,  ground black pepper, pizza sauce", 13.0, 5, 20, 1000));
-        foodlist.add(new FoodDomain("Iphone SE", "cat_1", "beef, Gouda Cheese, Special sauce, Lettuce, tomato ", 15.20, 4, 18, 1500));
-        foodlist.add(new FoodDomain("Iphone X", "cat_1", " olive oil, Vegetable oil, pitted Kalamata, cherry tomatoes, fresh oregano, basil", 11.0, 3, 16, 800));
+        ArrayList<itemDomain>  itemlist = new ArrayList<>();
+        itemlist.add(new itemDomain("Apple 12 Pro", "cat_1", "", 130000.00, 5, 20, 1000));
+        itemlist.add(new itemDomain("Apple 11 Pro", "cat_1", "", 150000.00, 4, 18, 1500));
+        itemlist.add(new itemDomain("Apple  Pro Max", "cat_1", "", 110000.00, 3, 16, 800));
+        itemlist.add(new itemDomain("Apple 12 Mini", "cat_1", "", 180000.0, 5, 20, 1000));
+        itemlist.add(new itemDomain("Iphone SE", "cat_1", "", 150000.00, 4, 18, 1500));
+        itemlist.add(new itemDomain("Iphone X", "cat_1", " ", 250000.00, 3, 16, 800));
 
-        adapter2 = new RecommendedAdapter(foodlist);
+        adapter2 = new RecommendedAdapter(itemlist);
         recyclerViewPopularList.setAdapter(adapter2);
     }
 
@@ -123,7 +123,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void viewMobileCat(View view) {
-        Log.d("workflow", "goto EditItems activity");
+        Log.d("workflow", "goto viewItem activity");
         Intent intent = new Intent(this, ViewMobileHome.class);
         startActivity(intent);
     }
